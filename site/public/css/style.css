@@ -1,0 +1,430 @@
+body {
+    background-color: #F5F5F5;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1, 1.1);
+    transition: 500ms;
+}
+
+button:active {
+    transform: scale(0.95, 0.95);
+}
+
+/* --------- HEADER ----------- */
+.header {
+    background-color: #000;
+    padding: 25px 15px;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul {
+    display: flex;
+    column-gap: 70px;
+    cursor: pointer;
+}
+
+.nav {
+    margin-right: 80px;
+}
+
+.navbar .nav li::after {
+    content: '';
+    width: 0;
+    height: 1px;
+    display: block;
+    background-color: aliceblue;
+    transition: 0.4s;
+}
+
+/* TRANSIÇÃO NOS ITEMS DA NAVBAR */
+.navbar .nav li:hover::after {
+    width: 100%;
+}
+
+.login ul {
+    display: flex;
+    column-gap: 30px;
+}
+
+.login li {
+    border: #fff 1px solid;
+    border-radius: 10px;
+    padding: 3px 7px;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.login li:hover {
+    transform: scale(1.1, 1.1);
+    transition: 500ms;
+    background-color: #f27500;
+}
+
+.login li:active {
+    transform: scale(0.95, 0.95);
+}
+
+/* --------- FIM DO HEADER ----------- */
+
+
+/* --------- BANNER ----------- */
+.banner {
+    background-image: url('/site/public/assets/imgs/bg-home.png');
+    height: 80vh;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    display: flex;
+}
+
+.banner .container {
+    height: 100%;
+}
+
+.banner .content-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.banner h2 {
+    font-size: 3.5rem;
+    font-weight: 500;
+}
+
+.banner button {
+    background-color: #f27500;
+    width: max-content;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: 500ms;
+}
+
+/* --------- FIM DO BANNER ----------- */
+
+/* --------- SALMOS ----------- */
+.salmos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.salmos .content {
+    top: -40px;
+    padding: 30px 10px;
+    width: max-content;
+    height: max-content;
+    min-height: 100px;
+    min-width: 400px;
+    position: relative;
+    box-shadow: 0px 1px 20px 0px rgb(0 0 0 / 82%);
+    background-color: #fff;
+    text-align: center;
+}
+
+.salmos .container {
+    flex-direction: column;
+}
+
+.salmos h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.salmos p {
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+/* --------- FIM DO SALMOS ----------- */
+
+/* --------- MUSICA ----------- */
+.content-musica .container {
+    margin-top: 40px;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.content-musica .content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.content-musica .content-text h2 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.content-musica .content-text p {
+    width: 80%;
+    line-height: 30px;
+}
+
+.music-cards {
+    background-image: url('/site/public/assets/imgs/bg-music.png');
+    background-size: cover;
+}
+
+.music-cards .container {
+    flex-direction: row;
+}
+
+.music-img img {
+    height: 600px;
+}
+
+.box-cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
+    right: 25px;
+}
+
+.card {
+    max-width: 400px;
+    height: 120px;
+    text-align: justify;
+    padding: 1rem 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.571) -3px 3px 10px 0px;
+    transition: .5s;
+    bottom: 0px;
+}
+
+.right {
+    left: 80px;
+}
+
+.card h2 {
+    color: #6FD6DC;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 13px 0px #6FD6DC;
+    transition: 500ms;
+    bottom: 10px;
+}
+
+/* --------- FIM MUSICA ----------- */
+
+/* --------- O QUE É O RYTHM ----------- */
+.rythm {
+    padding: 60px 0;
+    margin-top: 50px;
+    background-color: #232323;
+
+}
+
+.rythm .container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rythm .content-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rythm .content-text h2 {
+    color: #f4c599;
+    font-size: 2.5rem;
+}
+
+.rythm .content-text p {
+    color: #F5F5F5;
+    font-size: 1.3rem;
+}
+
+.rythm button {
+    margin-top: 30px;
+    background-color: #f4c599;
+    padding: 10px;
+    font-size: 1.1rem;
+    transition: 500ms;
+}
+
+/* --------- FIM RYTHM ----------- */
+
+/* --------- A MAIOR ORQUESTRA ----------- */
+.maior-orquestra {
+    margin-top: 80px;
+}
+
+.maior-orquestra .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.maior-orquestra .content-title {
+    margin: 30px 0 20px 0;
+}
+
+.maior-orquestra .content-title h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+
+}
+
+.maior-orquestra .content-title h1 {
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 10px;
+}
+
+.maior-orquestra .content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.maior-orquestra .content-text p {
+    width: 80%;
+    line-height: 30px;
+}
+
+.maior-orquestra .maior-video {
+    margin-top: 40px;
+}
+
+/* --------- FIM A MAIOR ORQUESTRA ----------- */
+
+
+/* --------- INSTRUMENTOS----------- */
+.instrumentos {
+    background-image: url('/site/public/assets/imgs/bg-instrumento.png');
+    background-size: cover;
+    margin-top: 50px;
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.instrumentos .container {
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+
+}
+
+.instrumentos .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    height: 100%;
+}
+
+.instrumentos h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    width: 300px;
+    color: #F5F5F5;
+}
+
+.instrumentos .emojis {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.instrumentos .emoji {
+    background-color: #f27500;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    transition: 500ms;
+}
+
+.instrumentos .emoji:hover {
+    transition: 500ms;
+    bottom: 100px;
+    transform: scale(1.1, 1.1);
+
+}
+
+.instrumentos img {
+    height: 60px;
+}
+
+.instrumentos-button {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.instrumentos button {
+    position: relative;
+    background-color: #6FD6DC;
+    border-radius: 10px;
+    padding: 25px;
+    font-size: 1.5rem;
+    transition: 500ms;
+    width: max-content;
+    bottom: 10px;
+    left: 30px;
+}
+
+/* --------- FIM INSTRUMENTOS----------- */
+
+footer {
+    height: 350px;
+    background-color: #000;
+    margin-top: 50px;
+}
