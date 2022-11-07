@@ -72,7 +72,7 @@
         <div class="music-cards">
             <div class="container">
                 <div class="music-img reveal">
-                    <img src="assets/imgs/music-img.png" id="music_img" alt="">
+                    <img src="./assets/imgs/music-img.png" id="music_img" alt="">
                 </div>
                 <div class="box-cards">
                     <div class="card left">
@@ -128,7 +128,7 @@
                     <p>Hoje em dia, ela conta com mais de 500 mil músicos oficiais e aprendizes espalhados pelo Brasil e
                         mundo, sendo considerada a maior orquestra litúrgica.</p>
                 </div>
-                <div class="maior-video reveal">
+                <div class="maior-video video-reveal">
                     <iframe width="800" height="350" src="https://www.youtube.com/embed/wGAIU5BKdOw"
                         title="Hino 39 CPM Bras. Qualidade de som inexplicável." frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -191,9 +191,15 @@
         delay: 100
     });
 
+    ScrollReveal().reveal('.video-reveal', {
+        distance: "100px",
+        duration: 1500,
+        delay: 400
+    });
+
     ScrollReveal().reveal('.left', {
         distance: "100px",
-        duration: 1000,
+        duration: 1200,
         interval: 600,
         delay: 600,
         origin: 'left'
@@ -201,7 +207,7 @@
 
     ScrollReveal().reveal('.right', {
         distance: "100px",
-        duration: 1000,
+        duration: 1500,
         interval: 600,
         delay: 600,
         origin: 'right'
