@@ -8,8 +8,7 @@
     <title>Ryyhm - Index</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
-    <style>
-    </style>
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -85,7 +84,7 @@
                     </div>
                     <div class="card left">
                         <h2>Intensidade</h2>
-                        <p>É a percepção da amplitude sonora (fraco ou forte). </p>
+                        <p>É a percepção da amplitude sonora, ou seja, a potência do som (fraco ou forte). </p>
                     </div>
                     <div class="card right">
                         <h2>Timbre</h2>
@@ -181,7 +180,6 @@
 </body>
 
 </html>
-<script src="https://unpkg.com/scrollreveal"></script>
 <script>
     ScrollReveal({ reset: true });
 
@@ -197,26 +195,26 @@
         delay: 400
     });
 
-    ScrollReveal().reveal('.left', {
+
+    ScrollReveal().reveal('.card', {
         distance: "100px",
         duration: 1200,
-        interval: 600,
+        interval: 300,
         delay: 600,
+    });
+
+    ScrollReveal().reveal('.left', {
         origin: 'left'
     });
 
     ScrollReveal().reveal('.right', {
-        distance: "100px",
-        duration: 1500,
-        interval: 600,
-        delay: 600,
         origin: 'right'
     });
 
     ScrollReveal().reveal('.emoji-reveal', {
         distance: "100px",
         duration: 1000,
-        interval: 400,
+        interval: 300,
         delay: 500,
         origin: 'bottom'
     });
@@ -224,8 +222,7 @@
     ScrollReveal().reveal('.instrumentos-button', {
         distance: "1000px",
         duration: 1000,
-        interval: 600,
-        delay: 2000,
+        delay: 1400,
         origin: 'right'
     });
 
