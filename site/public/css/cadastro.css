@@ -1,0 +1,18 @@
+.cadastro{
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+}
+.form{
+    max-height: 650px;
+}
+
+.form-box input,
+.form-box input:valid~i,
+.form-box input:focus~i  {
+    height: 10px;
+}
+
+.content{
+    margin-top: 40px;
+}
