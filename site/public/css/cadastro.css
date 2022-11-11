@@ -1,18 +1,80 @@
-.cadastro{
+.content {
+    margin-top: 40px;
+}
+
+.form {
+    min-width: 350px;
+    max-width: 350px;
+    min-height: 448.85px;
+}
+
+
+
+.form_orquestra {
     display: flex;
     flex-direction: row;
-    column-gap: 40px;
-}
-.form{
-    max-height: 650px;
-}
-
-.form-box input,
-.form-box input:valid~i,
-.form-box input:focus~i  {
-    height: 10px;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    justify-content: center;
+    animation: aparecer-esquerdo 400ms ease;
 }
 
-.content{
-    margin-top: 40px;
+.form_login {
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    animation: aparecer-direito 400ms ease;
+    justify-content: space-around;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-button button {
+    padding: 0.6rem 1rem;
+}
+
+.sumir-direito {
+    animation: sumir-direito 400ms ease;
+}
+
+.sumir-esquerdo {
+    animation: sumir-esquerdo 400ms ease;
+}
+
+@keyframes sumir-direito {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(200%);
+
+    }
+}
+
+@keyframes sumir-esquerdo {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+
+    }
+}
+
+@keyframes aparecer-direito {
+    0% {
+        transform: translateX(110%);
+    }
+}
+
+@keyframes aparecer-esquerdo {
+    0% {
+        transform: translateX(-110%);
+    }
 }

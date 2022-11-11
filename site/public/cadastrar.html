@@ -41,55 +41,52 @@
         <div class="content">
             <div class="effect-box">
                 <div class="form">
-                    <div class="cadastro">
-                        <div class="info_orquestra">
-                            <h2>Seja muito Bem vindo!</h2>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>Nome:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="password" id="form_senha" required="required">
-                                <span>CPNJ:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>E-mail:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>Senha:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>Confirmar Senha:</span>
-                                <i></i>
-                            </div>
+                    <div class="form_orquestra" id="form_orquestra">
+                        <h2>Seja muito Bem vindo!</h2>
+                        <div class="form-box">
+                            <input type="text" id="form_email" required="required">
+                            <span>Nome:</span>
+                            <i></i>
                         </div>
-                        <div class="info_contato">
-                            <h2>Deixe seu contato</h2>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>E-mail de contato:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>Telefone:</span>
-                                <i></i>
-                            </div>
-                            <div class="form-box">
-                                <input type="text" id="form_email" required="required">
-                                <span>Celular:</span>
-                                <i></i>
-                            </div>
+                        <div class="form-box">
+                            <input type="text" id="form_email" required="required">
+                            <span>E-mail:</span>
+                            <i></i>
+                        </div>
+                        <div class="form-box Telefone">
+                            <input type="text" id="form_email" required="required">
+                            <span>Telefone:</span>
+                            <i></i>
+                        </div>
+                        <div class="form-box celular">
+                            <input type="text" id="form_email" required="required">
+                            <span>Celular:</span>
+                            <i></i>
+                        </div>
+                        <button onclick="Prox_passo()">Próximo Passo</button>
+                    </div>
+                    <div class="form_login" id="form_login">
+                        <h2>Informações de Login</h2>
+                        <div class="form-box">
+                            <input type="text" id="form_email" required="required">
+                            <span>Login:</span>
+                            <i></i>
+                        </div>
+                        <div class="form-box">
+                            <input type="password" id="form_senha" required="required">
+                            <span>Senha:</span>
+                            <i></i>
+                        </div>
+                        <div class="form-box">
+                            <input type="text" id="form_email" required="required">
+                            <span>Confirmar Senha:</span>
+                            <i></i>
+                        </div>
+                        <div class="login-button">
+                            <button onclick="ant_passo()">Passo anterior</button>
+                            <button onclick="">Cadastrar</button>
                         </div>
                     </div>
-                    <button>Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -98,3 +95,21 @@
 </body>
 
 </html>
+<script>
+    function Prox_passo() {
+        form_orquestra.classList.add('sumir-esquerdo');
+        setTimeout(() => {
+            form_login.style.display = 'flex';
+            form_orquestra.style.display = 'none';
+            form_orquestra.classList.remove('sumir-esquerdo');
+        }, "400")
+    }
+    function ant_passo() {
+        form_login.classList.add('sumir-direito');
+        setTimeout(() => {
+            form_orquestra.style.display = 'flex';
+            form_login.style.display = 'none';
+            form_login.classList.remove('sumir-direito');
+        }, "400")
+    }
+</script>

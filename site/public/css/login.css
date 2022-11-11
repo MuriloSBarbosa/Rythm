@@ -14,7 +14,7 @@ body {
     width: 100vw;
     background-image: url("../assets/imgs/bg-login.png");
     background-size: cover;
-    background-position:  0 -10px ;
+    background-position:  0 -10px;
 }
 
 .content {
@@ -101,7 +101,6 @@ body {
 
 
 .form-box input {
-    min-width: 250px;
     font-size: 0.75em;
     width: 100%;
     padding: 7px 20px 7px;
