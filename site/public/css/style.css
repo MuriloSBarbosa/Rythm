@@ -353,7 +353,7 @@ button:active {
 
 /* --------- INSTRUMENTOS----------- */
 .instrumentos {
-    background-image: url('../assets/imgs/bg-instrumento.png');
+    background-image: url('../assets/imgs/bg-instruments.png');
     background-size: cover;
     margin-top: 50px;
     height: 90vh;
