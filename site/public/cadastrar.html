@@ -92,24 +92,19 @@
         </div>
     </section>
     <!-- FIM CADASTRO -->
+    
+    <!-- loading-gif -->
+    <div class="loading-gif">
+        <div class="gif">
+            <img class="gif-sax" src="./assets/imgs/sax.svg" height="100px" alt="">
+            <img class="gif-nota1" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota2" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota3" src="./assets/imgs/nota.svg" height="50px" alt="">
+        </div>
+        <h2>Carregando...</h2>
+    </div>
+    <!-- Fim loading-gif -->
 </body>
 
 </html>
-<script>
-    function Prox_passo() {
-        form_orquestra.classList.add('sumir-esquerdo');
-        setTimeout(() => {
-            form_login.style.display = 'flex';
-            form_orquestra.style.display = 'none';
-            form_orquestra.classList.remove('sumir-esquerdo');
-        }, "400")
-    }
-    function ant_passo() {
-        form_login.classList.add('sumir-direito');
-        setTimeout(() => {
-            form_orquestra.style.display = 'flex';
-            form_login.style.display = 'none';
-            form_login.classList.remove('sumir-direito');
-        }, "400")
-    }
-</script>
+<script src="js/cadastro.js"></script>
