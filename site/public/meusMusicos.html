@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rythm: Meus Musicos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/meusMusicos.css">
+
+</head>
+
+<body>
+    <div class="menu">
+        <div class="container">
+            <div class="logo">
+                <h2>LOGO</h2>
+            </div>
+            <div class="indices">
+                <ul class="lista">
+                    <a href="">
+                        <li>Músicos</li>
+                    </a>
+                    <a href="">
+                        <li>Naipes</li>
+                    </a>
+                    <a href="">
+                        <li>Instrumentos</li>
+                    </a>
+                    <a href="">
+                        <li>Partituras</li>
+                    </a>
+                </ul>
+            </div>
+            <div>
+                <button class="sair">sair</button>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard">
+        <div class="content-musicos">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Meus Músicos</h2>
+                </div>
+                <div class="musicos-inputs">
+                    <div class="pesquisar">
+                        <span>Pesquisar:</span>
+                        <input type="text" id="in_pesquisa">
+                        <button><img src="../public/assets/imgs/search.svg" alt=""></button>
+                    </div>
+                    <div class="adicionar">
+                        <button onclick="abrir_modalAdicionar()">Adicionar novo Músico</button>
+                    </div>
+                </div>
+                <div class="planilha-musicos">
+                    <table class="tabela-musicos">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Musico</th>
+                                <th>Instrumento</th>
+                                <th>Telefone</th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Marcos Carlos Antoni</td>
+                                <td>Sax</td>
+                                <td>19209</td>
+                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar()"><img
+                                            src="../public/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Marcos Carlos Antoni</td>
+                                <td>Sax</td>
+                                <td>19209</td>
+                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
+                                <td><button><img src="../public/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Marcos Carlos Antoni</td>
+                                <td>Sax</td>
+                                <td>19209</td>
+                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
+                                <td><button><img src="../public/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background-modal" id="div_backgroundModal">
+        <div class="modal modal-adicionar" id="div_adicionarModal">
+            <div class="modal-head">
+                <h2>Adicionar novo Músico</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-form">
+                    <div class="modal-box">
+                        <label for="in_adcNome">Nome</label>
+                        <input type="text" id="in_adcNome">
+                    </div>
+                    <div class="modal-box">
+                        <label for="in_adcTelefone">Telefone</label>
+                        <input type="text" id="in_adcTelefone">
+                    </div>
+                    <div class="modal-box">
+                        <label for="sel_adcInstrumento">Naipe do Instrumento</label>
+                        <select id="sel_naipe" onchange="qual_naipe()">
+                            <option value="">-- escolha um --</option>
+                            <option value="cordas">Cordas</option>
+                            <option value="madeiras">Madeiras</option>
+                            <option value="metais">Metais</option>
+                        </select>
+                    </div>
+                    <div class="modal-box">
+                        <label for="sel_adcInstrumento">Instrumento</label>
+                        <select id="sel_instrumento" onchange="sel_instrumento()" disabled>
+                            <option value="">-- Selecione um naipe --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-buttons">
+                    <button class="btn_cancelar" onclick="fechar_modalAdicionar()">Cancelar</button>
+                    <button class="btn_adicionar">Adicionar</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-editar" id="div_editarModal">
+            <div class="modal-head">
+                <h2>Editar Músico</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-form">
+                    <div class="modal-box">
+                        <label for="in_edtId">Id</label>
+                        <input id="in_edtId" class="input-disabled" type="text" disabled>
+                    </div>
+                    <div class="modal-box">
+                        <label for="in_edtNome">Nome</label>
+                        <input id="in_edtNome" type="text">
+                    </div>
+                    <div class="modal-box">
+                        <label for="sel_adcInstrumento">Naipe do Instrumento</label>
+                        <select id="sel_naipe" onchange="qual_naipe()">
+                            <option value="">-- escolha um --</option>
+                            <option value="cordas">Cordas</option>
+                            <option value="madeiras">Madeiras</option>
+                            <option value="metais">Metais</option>
+                        </select>
+                    </div>
+                    <div class="modal-box">
+                        <label for="sel_adcInstrumento">Instrumento</label>
+                        <select id="sel_instrumento" onchange="sel_instrumento()" disabled>
+                            <option value="">-- Selecione um naipe --</option>
+                        </select>
+                    </div>
+                    <div class="modal-box">
+                        <label for="in_edtTelefone">Telefone</label>
+                        <input id="in_edtTelefone" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-buttons">
+                    <button class="btn_cancelar" onclick="fechar_modalEditar()">Cancelar</button>
+                    <button class="btn_editar">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function abrir_modalAdicionar() {
+        div_backgroundModal.style.display = 'flex';
+        div_adicionarModal.style.display = 'block'
+        document.body.style.overflow = 'hidden';
+    }
+    function fechar_modalAdicionar() {
+        div_adicionarModal.classList.add('sumirModal');
+        setTimeout(() => {
+            div_backgroundModal.style.display = 'none';
+            div_adicionarModal.classList.remove('sumirModal');
+            div_adicionarModal.style.display = 'none'
+            document.body.style.overflow = '';
+        }, 500);
+    }
+
+    function abrir_modalEditar() {
+        div_backgroundModal.style.display = 'flex';
+        div_editarModal.style.display = 'block'
+        document.body.style.overflow = 'hidden';
+    }
+    function fechar_modalEditar() {
+        div_editarModal.classList.add('sumirModal');
+        setTimeout(() => {
+            div_backgroundModal.style.display = 'none';
+            div_editarModal.classList.remove('sumirModal');
+            div_editarModal.style.display = 'none'
+            document.body.style.overflow = '';
+        }, 500);
+    }
+    function qual_naipe() {
+        sel_instrumento.innerHTML = "";
+        var naipe = sel_naipe.value;
+        var option = ``;
+        if (!(naipe == "")) {
+            if (naipe == 'cordas') {
+                option =
+                    `
+                                <option value="">-- escolha um --</option>
+                                <option value="1">Violino</option>
+                                <option value="2">Violoncelo</option>
+                                <option value="3">Contrabaixo</option>
+                                <option value="4">Harpa</option>
+                                <option value="5">Violão</option>
+                    `
+            } else if (naipe == 'madeiras') {
+                option =
+                    `
+                                <option value="">-- escolha um --</option>
+                                <option value="6">Flauta</option>
+                                <option value="7">Oboé</option>
+                                <option value="8">Fagote</option>
+                                <option value="9">Contrafagote</option>
+                                <option value="10">Clarinete</option>
+                                <option value="11">Clarone</option>
+                                <option value="12">Corne Inglês</option>
+                                <option value="13">Saxofone Soprano</option>
+                                <option value="14">Saxofone Alto</option>
+                                <option value="15">Saxofone Tenor</option>
+                                <option value="16">Saxofone Baritono</option>
+                    `
+            } else {
+                option =
+                    `
+                                <option value="">-- escolha um --</option>
+                                <option value="17">Trompete</option>
+                                <option value="18">Trompa</option>
+                                <option value="19">Trombone</option>
+                                <option value="20">Tuba</option>
+                                <option value="21">Eufônio</option>
+                                <option value="22">Flugelhorn</option>
+                `
+            }
+            sel_instrumento.innerHTML = option;
+            sel_instrumento.disabled = false;
+
+        } else {
+            sel_instrumento.disabled = true;
+            option = `<option value="">-- Selecione um naipe --</option>`
+            sel_instrumento.innerHTML = option;
+        }
+    }
+</script>
