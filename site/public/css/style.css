@@ -32,6 +32,7 @@ button:active {
     background-color: aliceblue;
     transition: 0.4s;
 }
+
 /* --------- HEADER ----------- */
 .header {
     background-color: #000;
@@ -248,9 +249,11 @@ button:active {
     letter-spacing: 2px;
     font-size: 1.1rem;
 }
+
 .card p {
     font-size: 0.9rem;
 }
+
 .card:hover {
     box-shadow: 0px 0px 13px 0px #6FD6DC;
     transition: 500ms;
@@ -438,3 +441,92 @@ footer {
     height: 350px;
     background-color: #000;
 }
+
+/* ---------- loading-gif ----------- */
+.loading-gif {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.735);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gif-nota1 {
+    animation: gif-notas 1.5s ease-in-out infinite;
+}
+
+.gif-nota2 {
+    animation: gif-notas 1.5s ease-in-out infinite;
+    animation-delay: 0.15s;
+}
+
+.gif-nota3 {
+    animation: gif-notas 1.5s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+@keyframes gif-notas {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.gif-sax {
+    animation: gif-sax 1.5s ease-in-out infinite;
+
+}
+
+@keyframes gif-sax {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+.loading-gif h2 {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #fff;
+    animation: gif-h2 2s ease-in-out infinite;
+}
+
+@keyframes gif-h2 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ---------- FIM loading-gif ----------- */
