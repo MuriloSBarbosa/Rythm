@@ -122,10 +122,125 @@ function listarUm(req, res) {
 // ----------------- fim listarUm -------------------- //
 
 
+
+// ----------------- Pesquisar nome -------------------- //
+function pesquisarNome(req, res) {
+    var idOrquestra = req.params.idOrquestra;
+    var pesquisa = req.params.pesquisa;
+
+    meusMusicosModel.pesquisarNome(idOrquestra, pesquisa)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ----------------- FimPesquisar nome -------------------- //
+
+
+
+
+
+// ----------------- Pesquisar Instrumento -------------------- //
+function pesquisarInstrumento(req, res) {
+    var idOrquestra = req.params.idOrquestra;
+    var pesquisa = req.params.pesquisa;
+
+    meusMusicosModel.pesquisarInstrumento(idOrquestra, pesquisa)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ----------------- FimPesquisar Instrumento -------------------- //
+
+
+
+
+// ----------------- Pesquisar Naipe -------------------- //
+function pesquisarNaipe(req, res) {
+    var idOrquestra = req.params.idOrquestra;
+    var pesquisa = req.params.pesquisa;
+    
+    meusMusicosModel.pesquisarNaipe(idOrquestra, pesquisa)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ----------------- FimPesquisar Naipe -------------------- //
+
+
+
+
+// ----------------- Pesquisar Telefone -------------------- //
+function pesquisarTelefone(req, res) {
+    var idOrquestra = req.params.idOrquestra;
+    var pesquisa = req.params.pesquisa;
+
+    meusMusicosModel.pesquisarTelefone(idOrquestra, pesquisa)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ----------------- FimPesquisar Telefone -------------------- //
+
+
+
+
+
 module.exports = {
     cadastrarMusico,
     listar,
     deletar,
     editar,
-    listarUm
+    listarUm,
+    pesquisarNome,
+    pesquisarInstrumento,
+    pesquisarNaipe,
+    pesquisarTelefone,
 }

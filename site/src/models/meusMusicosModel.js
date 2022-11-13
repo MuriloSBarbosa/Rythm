@@ -8,8 +8,8 @@ function cadastrar(idOrquestra, nome, telefone, instrumento) {
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
     function publicar(): ${idOrquestra},${nome},${telefone},${instrumento}`);
 
-    var instrucao = 
-    `
+    var instrucao =
+        `
         INSERT INTO musico (idMusico, nome, telefone, fkOrquestra, fkInstrumento)
             VALUES
                 (
@@ -120,10 +120,109 @@ function listarUm(idMusico) {
     return database.executar(instrucao);
 }
 
+
+
+function pesquisarNome(idOrquestra, pesquisa) {
+    console.log(`ACESSEI O PESQUISA NOME MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+
+    var instrucao = `
+    select m.idMusico,
+    m.nome,
+    i.nome as instrumento,
+    m.telefone     
+      from musico m join instrumento i 
+          on fkInstrumento = idInstrumento 
+              where fkOrquestra = ${idOrquestra} and m.nome = '${pesquisa}'; 
+            
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+function pesquisarInstrumento(idOrquestra, pesquisa) {
+    console.log(`ACESSEI O PESQUISA INSTRUMENTO MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+
+    var instrucao = `
+    select m.idMusico,
+    m.nome,
+    i.nome as instrumento,
+    m.telefone     
+      from musico m join instrumento i 
+          on fkInstrumento = idInstrumento 
+              where fkOrquestra = ${idOrquestra} and i.nome = '${pesquisa}'; 
+            
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+
+function pesquisarNaipe(idOrquestra, pesquisa) {
+    console.log(`ACESSEI O PESQUISA NAIPE MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+
+    var instrucao = `
+    select m.idMusico,
+    m.nome,
+    i.nome as instrumento,
+    m.telefone     
+      from musico m join instrumento i 
+          on fkInstrumento = idInstrumento 
+              where fkOrquestra = ${idOrquestra} and i.naipe = '${pesquisa}'; 
+            
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+function pesquisarTelefone(idOrquestra, pesquisa) {
+    console.log(`ACESSEI O PESQUISA NOME MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+
+    var instrucao = `
+    select m.idMusico,
+    m.nome,
+    i.nome as instrumento,
+    m.telefone     
+      from musico m join instrumento i 
+          on fkInstrumento = idInstrumento 
+              where fkOrquestra = ${idOrquestra} and m.telefone = '${pesquisa}'; 
+            
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     cadastrar,
     listar,
     deletar,
     editar,
-    listarUm
+    listarUm,
+    pesquisarNome,
+    pesquisarInstrumento,
+    pesquisarNaipe,
+    pesquisarTelefone
 }

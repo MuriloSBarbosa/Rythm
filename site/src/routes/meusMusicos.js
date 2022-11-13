@@ -24,4 +24,19 @@ router.get("/listarUm/:idMusico", function (req, res) {
     meusMusicosController.listarUm(req, res);
 });
 
+router.get("/pesquisarNome/:idOrquestra/:pesquisa", function (req, res) {
+    meusMusicosController.pesquisarNome(req, res);
+});
+
+router.get("/pesquisarInstrumento/:idOrquestra/:pesquisa", function (req, res) {
+    meusMusicosController.pesquisarInstrumento(req, res);
+});
+
+router.get("/pesquisarNaipe/:idOrquestra/:pesquisa", function (req, res) {
+    meusMusicosController.pesquisarNaipe(req, res);
+});
+
+router.get("/pesquisarTelefone/:idOrquestra/:pesquisa", function (req, res) {
+    meusMusicosController.pesquisarTelefone(req, res);
+});
 module.exports = router;

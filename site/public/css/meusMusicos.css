@@ -97,23 +97,68 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 30px;
     padding: 1rem;
+}
+
+.input-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
 }
 
 .pesquisar {
     position: relative;
-    width: 50%;
     display: flex;
+    align-items: center;
+    width: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
     padding: 12px 15px;
     overflow: hidden;
 }
 
+.tipo-pesquisa {
+    width: max-content;
+    padding: 0;
+    height: max-content;
+    align-self: flex-start;
+    margin-top: 30px;
+    padding: 5px 10px;
+    margin-left: 1rem;
+    height: max-content;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.tipo-pesquisa span,
+.tipo-pesquisa select {
+    font-size: 0.8rem;
+}
+
+.tipo-pesquisa select {
+    height: max-content;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.tipo-pesquisa select option {
+    margin: 100px;
+}
+
 .pesquisar input {
     padding: 0 10px;
-    width: 75%;
+    width: 100%;
+}
+
+.pesquisar button:hover,
+.pesquisar button:focus {
+    transform: scale(1.3);
+}
+
+.pesquisar button:active {
+    transform: scale(0.8);
 }
 
 .adicionar button {
@@ -123,9 +168,31 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
+.todosMusicos button {
+    background-color: #00bbff;
+    padding: 12px 10px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.nenhum-cadastrado {
+    animation: aparecer_planilha 500ms ease-out;
+}
+
 .planilha-musicos {
     margin-top: 30px;
     width: 100%;
+    animation: aparecer_planilha 500ms ease-out;
+}
+
+@keyframes aparecer_planilha {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .tabela-musicos {
@@ -134,6 +201,7 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
+    animation: aparecer_planilha 600ms ease-out;
 }
 
 .tabela-musicos tr td:first-of-type,
@@ -147,6 +215,14 @@ body {
     text-align: left;
     font-weight: 600;
 }
+
+.tabela-musicos th img {
+    height: 13px;
+    position: relative;;
+    left: 4px;
+    background-color: #c9c9c9;
+}
+
 
 .tabela-musicos th,
 td {
@@ -253,7 +329,7 @@ td {
 }
 
 .modal-box input,
-select {
+.modal-box select {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.30);
     border-radius: 5px;
     padding: 7px 17px;
@@ -261,7 +337,7 @@ select {
 }
 
 .modal-box input:focus,
-select:focus {
+.modal-box select:focus {
     box-shadow: 0 0 5px rgb(0, 0, 0);
     transition: 300ms ease-in-out;
 }

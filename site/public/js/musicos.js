@@ -41,6 +41,27 @@ function fechar_modalEditar() {
     }, 500);
 }
 
+
+function abrir_modalPesquisar() {
+    div_backgroundModal.style.display = 'flex';
+    div_pesquisarModal.style.display = 'block'
+    document.body.style.overflow = 'hidden';
+}
+function fechar_modalAdicionar() {
+    div_adicionarModal.classList.add('sumirModal');
+
+    in_adcNome.value = "";
+    in_adcTelefone.value = "";
+    sel_adcNaipe.value = "";
+    in_adcNome.focus();
+
+    setTimeout(() => {
+        div_backgroundModal.style.display = 'none';
+        div_adicionarModal.classList.remove('sumirModal');
+        div_adicionarModal.style.display = 'none'
+        document.body.style.overflow = '';
+    }, 500);
+}
 // ------------------ FIM Funções de modal ------------------------//
 
 
@@ -268,7 +289,7 @@ function atualizarFeed() {
                 <table class="tabela-musicos">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>Id<img src="assets/imgs/minus.png" alt=""></th> 
                             <th>Musico</th>
                             <th>Instrumento</th>
                             <th>Telefone</th>
@@ -306,7 +327,6 @@ function atualizarFeed() {
         }
     }).catch(function (resposta) {
         console.error(resposta);
-        finalizarAguardar();
     });
 }
 // ------------------ Fim Função de Atualizar Feed ------------------------//
@@ -406,3 +426,317 @@ function editar(idMusico) {
 }
 
 // ------------------ Fim Função de Editar Músico ------------------------//
+
+
+
+
+// ------------------ Pesquisa de Músico ------------------------//
+function tipoNaipe() {
+    if (sel_tipoPesquisa.value == 'naipe') {
+        input_select.innerHTML =
+            `
+        <select style="margin-left:15px" id="sel_pesquisa">
+            <option value="cordas">cordas</option>
+            <option value="madeiras">madeiras</option>
+            <option value="metais">metais</option>
+        </select>
+        `
+    } else {
+        input_select.innerHTML =
+            `
+        <input type="text" id="in_pesquisa">
+        `
+    }
+}
+function pesquisar() {
+    var idOrquestra = sessionStorage.ID_ORQUESTRA;
+    var tipo = sel_tipoPesquisa.value;
+
+    if (pesquisa == '') {
+        var texto = 'Digite uma pesquisa.';
+        aparecer_card(texto);
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            div_card.style.display = "none";
+            document.body.style.overflow = '';
+        }, "1500")
+    } else {
+        if (tipo == 'nome') {
+            var pesquisa = in_pesquisa.value;
+
+            fetch(`/meusMusicos/pesquisarNome/${idOrquestra}/${pesquisa}`).then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        div_planilhaMusicos.innerHTML =
+                            `
+                        <div class="nenhum-cadastrado">
+                            <h2>Nenhum '${pesquisa}' encontrado</h2>
+                        </div>
+                        `
+                        console.log("Nenhum músico encontrado!")
+                    }
+
+                    resposta.json().then(function (resposta) {
+
+                        var texto = 'Músicos(s) encontrado(s)';
+                        aparecer_card(texto);
+                        document.body.style.overflow = 'hidden';
+
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        div_planilhaMusicos.innerHTML =
+                            `
+                    <table class="tabela-musicos">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Musico</th>
+                                <th>Instrumento</th>
+                                <th>Telefone</th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_musicos">
+                        </tbody>
+                    </table>
+                    `;
+                        for (let i = 0; i < resposta.length; i++) {
+                            var musico = resposta[i];
+                            table_musicos.innerHTML +=
+                                `
+                            <tr>
+                                <td>${musico.idMusico}</td>
+                                <td>${musico.nome}</td>
+                                <td>${musico.instrumento}</td>
+                                <td>${musico.telefone}</td>
+                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                        `
+                        }
+
+                        setTimeout(() => {
+                            div_card.style.display = "none";
+                            document.body.style.overflow = '';
+                        }, "1500")
+                    });
+
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+            });
+        } else if (tipo == 'instrumento') {
+            var pesquisa = in_pesquisa.value;
+
+            fetch(`/meusMusicos/pesquisarInstrumento/${idOrquestra}/${pesquisa}`).then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        div_planilhaMusicos.innerHTML =
+                            `
+                        <div class="nenhum-cadastrado">
+                            <h2>Nenhum registro de instrumento: '${pesquisa}' encontrado</h2>
+                        </div>
+                        `
+                        console.log("Nenhum instrumento encontrado!")
+                    }
+
+                    resposta.json().then(function (resposta) {
+
+                        var texto = `Instrumento: '${pesquisa}' encontrado(s)`;
+                        aparecer_card(texto);
+                        document.body.style.overflow = 'hidden';
+
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        div_planilhaMusicos.innerHTML =
+                            `
+                    <table class="tabela-musicos">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Musico</th>
+                                <th>Instrumento</th>
+                                <th>Telefone</th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_musicos">
+                        </tbody>
+                    </table>
+                    `;
+                        for (let i = 0; i < resposta.length; i++) {
+                            var musico = resposta[i];
+                            table_musicos.innerHTML +=
+                                `
+                            <tr>
+                                <td>${musico.idMusico}</td>
+                                <td>${musico.nome}</td>
+                                <td>${musico.instrumento}</td>
+                                <td>${musico.telefone}</td>
+                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                        `
+                        }
+
+                        setTimeout(() => {
+                            div_card.style.display = "none";
+                            document.body.style.overflow = '';
+                        }, "1500")
+                    });
+
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+            });
+        } else if (tipo == 'naipe') {
+            pesquisa = sel_pesquisa.value;
+
+            fetch(`/meusMusicos/pesquisarNaipe/${idOrquestra}/${pesquisa}`).then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        div_planilhaMusicos.innerHTML =
+                            `
+                        <div class="nenhum-cadastrado">
+                            <h2>Nenhum registro com instrumento de naipe '${pesquisa}' encontrado</h2>
+                        </div>
+                        `
+                        console.log("Nenhum naipe encontrado!")
+                    }
+
+                    resposta.json().then(function (resposta) {
+
+                        var texto = `Instrumento com naipe: '${pesquisa}' encontrado(s)`;
+                        aparecer_card(texto);
+                        document.body.style.overflow = 'hidden';
+
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        div_planilhaMusicos.innerHTML =
+                            `
+                    <table class="tabela-musicos">
+                        <thead>
+                            <tr>
+                                <th>Id</th> 
+                                <th>Musico</th>
+                                <th>Instrumento</th>
+                                <th>Telefone</th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_musicos">
+                        </tbody>
+                    </table>
+                    `;
+                        for (let i = 0; i < resposta.length; i++) {
+                            var musico = resposta[i];
+                            table_musicos.innerHTML +=
+                                `
+                            <tr>
+                                <td>${musico.idMusico}</td>
+                                <td>${musico.nome}</td>
+                                <td>${musico.instrumento}</td>
+                                <td>${musico.telefone}</td>
+                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                        `
+                        }
+
+                        setTimeout(() => {
+                            div_card.style.display = "none";
+                            document.body.style.overflow = '';
+                        }, "1500")
+                    });
+
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+            });
+        } else {
+            var pesquisa = in_pesquisa.value;
+
+            fetch(`/meusMusicos/pesquisarTelefone/${idOrquestra}/${pesquisa}`).then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        div_planilhaMusicos.innerHTML =
+                            `
+                        <div class="nenhum-cadastrado">
+                            <h2>Nenhum registro com telefone '${pesquisa}' encontrado</h2>
+                        </div>
+                        `
+                        console.log("Nenhum telefone encontrado!")
+                    }
+
+                    resposta.json().then(function (resposta) {
+
+                        var texto = `Telefone: '${pesquisa}' encontrado(s)`;
+                        aparecer_card(texto);
+                        document.body.style.overflow = 'hidden';
+
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        div_planilhaMusicos.innerHTML =
+                            `
+                    <table class="tabela-musicos">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Musico</th>
+                                <th>Instrumento</th>
+                                <th>Telefone</th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_musicos">
+                        </tbody>
+                    </table>
+                    `;
+                        for (let i = 0; i < resposta.length; i++) {
+                            var musico = resposta[i];
+                            table_musicos.innerHTML +=
+                                `
+                            <tr>
+                                <td>${musico.idMusico}</td>
+                                <td>${musico.nome}</td>
+                                <td>${musico.instrumento}</td>
+                                <td>${musico.telefone}</td>
+                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                            </tr>
+                        `
+                        }
+
+                        setTimeout(() => {
+                            div_card.style.display = "none";
+                            document.body.style.overflow = '';
+                        }, "1500")
+                    });
+
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+            });
+        }
+    }
+}
+// ------------------ Fim Pesquisa de Músico ------------------------//
+
+// ------------------- Ordernar por atributos ---------------------- //
+
+// ------------------- Fim Ordernar por atributos ---------------------- //
+
+
