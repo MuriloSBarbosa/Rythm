@@ -12,11 +12,15 @@
 
 </head>
 
-<body>
+<body onload="validarSessao(),atualizarFeed()">
     <div class="menu">
         <div class="container">
             <div class="logo">
                 <h2>LOGO</h2>
+            </div>
+            <div class="bem-vindo">
+                <h2>Bem Vindo,</h2>
+                <span id="spn_orquestraNome">Nome Orquestra</span>
             </div>
             <div class="indices">
                 <ul class="lista">
@@ -49,52 +53,16 @@
                     <div class="pesquisar">
                         <span>Pesquisar:</span>
                         <input type="text" id="in_pesquisa">
-                        <button><img src="../public/assets/imgs/search.svg" alt=""></button>
+                        <button><img src="../public/assets/imgs/lixo.svg" alt=""></button>
                     </div>
                     <div class="adicionar">
                         <button onclick="abrir_modalAdicionar()">Adicionar novo Músico</button>
                     </div>
                 </div>
-                <div class="planilha-musicos">
-                    <table class="tabela-musicos">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Musico</th>
-                                <th>Instrumento</th>
-                                <th>Telefone</th>
-                                <th>Excluir</th>
-                                <th>Editar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Marcos Carlos Antoni</td>
-                                <td>Sax</td>
-                                <td>19209</td>
-                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
-                                <td><button onclick="abrir_modalEditar()"><img
-                                            src="../public/assets/imgs/lapis.svg"></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marcos Carlos Antoni</td>
-                                <td>Sax</td>
-                                <td>19209</td>
-                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
-                                <td><button><img src="../public/assets/imgs/lapis.svg"></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marcos Carlos Antoni</td>
-                                <td>Sax</td>
-                                <td>19209</td>
-                                <td><button><img src="../public/assets/imgs/lixo.svg"></button></td>
-                                <td><button><img src="../public/assets/imgs/lapis.svg"></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="planilha-musicos" id="div_planilhaMusicos">
+                    <div class="nenhum-cadastrado">
+                        <h2 id="h2_nenhumAchado"></h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,7 +103,7 @@
             <div class="modal-footer">
                 <div class="modal-buttons">
                     <button class="btn_cancelar" onclick="fechar_modalAdicionar()">Cancelar</button>
-                    <button class="btn_adicionar">Adicionar</button>
+                    <button class="btn_adicionar" onclick="adicionarMusico()">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -183,7 +151,28 @@
         </div>
     </div>
 
+    <!-- loading-gif -->
+    <div class="loading-gif" id="loading_gif">
+        <div class="gif">
+            <img class="gif-sax" src="./assets/imgs/sax.svg" height="100px" alt="">
+            <img class="gif-nota1" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota2" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota3" src="./assets/imgs/nota.svg" height="50px" alt="">
+        </div>
+        <h2 id="h2_loading"></h2>
+    </div>
+    <!-- Fim loading-gif -->
+
+    <!-- card -->
+    <div class="msgCard" id="div_card">
+        <div class="mensagem">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
+    <!-- Fim card -->
+
 </body>
 
 </html>
 <script src="./js/musicos.js"></script>
+<script src="./js/funcoes.js"></script>

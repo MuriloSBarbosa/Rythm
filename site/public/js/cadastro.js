@@ -2,6 +2,9 @@ function Prox_passo() {
     var nomeVar = in_nome.value;
     var emailVar = in_email.value;
 
+    in_email.parentElement.childNodes[3].style.color = '#dbdbdb';
+    in_nome.parentElement.childNodes[3].style.color = '#dbdbdb';
+
     if (nomeVar == "" || emailVar == "") {
         if (emailVar == "") {
             in_email.parentElement.childNodes[3].style.color = 'red'
@@ -47,6 +50,11 @@ function cadastrar() {
     var senhaVar = in_senha.value;
     var confSenhaVar = in_confSenha.value;
 
+    in_login.parentElement.childNodes[3].style.color = '#dbdbdb';
+    in_senha.parentElement.childNodes[3].style.color = '#dbdbdb';
+    in_confSenha.parentElement.childNodes[3].style.color = '#dbdbdb';
+    in_confSenha.parentElement.childNodes[3].style.color = '#dbdbdb';
+
     if (loginVar == "" || senhaVar == "" || confSenhaVar == "" || senhaVar != confSenhaVar) {
         if (loginVar == "" || senhaVar == "") {
             if (loginVar == "") {
@@ -61,10 +69,6 @@ function cadastrar() {
             alert("Preencha os campos obrigatórios!")
             return false;
         }
-
-        in_login.parentElement.childNodes[3].style.color = '#dbdbdb';
-        in_senha.parentElement.childNodes[3].style.color = '#dbdbdb';
-        in_confSenha.parentElement.childNodes[3].style.color = '#dbdbdb';
 
         if (senhaVar != confSenhaVar) {
             in_confSenha.parentElement.childNodes[3].style.color = 'red';

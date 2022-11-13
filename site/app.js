@@ -10,8 +10,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var orquestraRouter = require("./src/routes/orquestra");
-var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas");
+var meusMusicosRouter = require("./src/routes/meusMusicos");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,8 +20,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/orquestra", orquestraRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter)
+app.use("/meusMusicos", meusMusicosRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

@@ -19,8 +19,6 @@ function entrar() {
         return false;
     }
 
-    aguardar();
-
     console.log("FORM LOGIN: ", loginVar);
     console.log("FORM SENHA: ", senhaVar);
 
@@ -34,10 +32,14 @@ function entrar() {
             senhaServer: senhaVar
         })
     }).then(function (resposta) {
+        aguardar();
         console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
             console.log(resposta);
+
+            var msg = "Login realizado com sucesso! Redirecionando...";
+            aparecer_card(msg);
 
             resposta.json().then(json => {
                 console.log(json);
@@ -47,24 +49,35 @@ function entrar() {
                 sessionStorage.NOME_ORQUESTRA = json.nome;
                 sessionStorage.ID_ORQUESTRA = json.idOrquestra;
 
-                setTimeout(function () {
-                    window.location = "./musicos.html";
-                }, 1000); // apenas para exibir o loading
-
             });
 
+            setTimeout(() => {
+                div_card.style.display = "none";
+                finalizarAguardar();
+            }, "3000")
+
+            setTimeout(() => {
+                window.location = "meusMusicos.html";
+            }, "2500")
         } else {
 
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
+                console.log(texto);
+
+                aparecer_card(texto);
+
+                setTimeout(() => {
+                    div_card.style.display = "none";
+                    finalizarAguardar();
+                }, "2500")
             });
         }
 
     }).catch(function (erro) {
         console.log(erro);
+        finalizarAguardar();
     })
 
     return false;

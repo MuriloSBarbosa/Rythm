@@ -1,19 +1,14 @@
 // sessão
 function validarSessao() {
-    // aguardar();
 
-    var email = sessionStorage.EMAIL_ORQUESTRA;
+    var login = sessionStorage.LOGIN_ORQUESTRA;
     var nome = sessionStorage.NOME_ORQUESTRA;
 
-    var b_usuario = document.getElementById("b_usuario");
+    if (login != null && nome != null) {
+        spn_orquestraNome.innerHTML = nome;
 
-    if (email != null && nome != null) {
-        // window.alert(`Seja bem-vindo, ${nome}!`);
-        b_usuario.innerHTML = nome;
-
-        // finalizarAguardar();
     } else {
-        window.location = "../login.html";
+        window.location = "./login.html";
     }
 }
 
