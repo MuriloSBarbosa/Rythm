@@ -35,7 +35,23 @@ function listar(idOrquestra) {
     return database.executar(instrucao);
 }
 
+function deletar(idMusico) {
+    console.log(`ACESSEI O AVISO MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function deletar():", ${idMusico}`);
+
+    var instrucao = `
+        DELETE FROM musico WHERE idMusico = ${idMusico};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    deletar
 }

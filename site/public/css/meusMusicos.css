@@ -37,9 +37,9 @@ body {
 
 .lista li {
     background-color: transparent;
-    margin: 2rem 0;
+    margin: 1rem 0;
     text-align: center;
-    padding: 0.7rem;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
     cursor: pointer;
     border: #dbdbdb 2px solid;

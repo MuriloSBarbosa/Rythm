@@ -199,7 +199,6 @@ function adicionarMusico() {
         },
         body: JSON.stringify(corpo)
     }).then(function (resposta) {
-        aguardar();
         h2_loading.innerHTML = 'Adicionando...';
 
         console.log("resposta: ", resposta);
@@ -240,18 +239,26 @@ function editar(idAviso) {
 
 }
 
-function deletar(fkMusico) {
-    console.log("Criar função de excluir musico - ID" + fkMusico);
-    fetch(`/avisos/deletar/${fkMusico}`, {
+function deletar_musico(idMusico) {
+    console.log("Criar função de excluir musico - ID" + idMusico);
+
+    fetch(`/meusMusicos/deletar/${idMusico}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     }).then(function (resposta) {
+        aguardar();
 
         if (resposta.ok) {
-            window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_ORQUESTRA") + "!");
-            window.location = "/dashboard/mural.html"
+            var texto = `Músico ${idMusico} deletado com sucesso!`;
+            aparecer_card(texto);
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                window.location = "/meusMusicos.html";
+            }, "1500")
+
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {
@@ -268,12 +275,11 @@ function atualizarFeed() {
     fetch(`/meusMusicos/listar/${idOrquestra}`).then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
-                h2_nenhumAchado.innerHTML = "Nenhum resultado encontrado."
-                throw "Nenhum resultado encontrado!!";
+                h2_nenhumAchado.innerHTML = "Nenhum músico cadastrado."
+                throw "Nenhum músico cadastrado!";
             }
 
             resposta.json().then(function (resposta) {
-                aguardar();
 
                 var texto = 'Listando Musicos';
                 aparecer_card(texto);
@@ -307,8 +313,8 @@ function atualizarFeed() {
                             <td>${musico.nome}</td>
                             <td>${musico.instrumento}</td>
                             <td>${musico.telefone}</td>
-                            <td><button onclick="deletar_musico()"><img src="../public/assets/imgs/lixo.svg"></button></td>
-                            <td><button onclick="abrir_modalEditar()"><img src="../public/assets/imgs/lapis.svg"></button></td>
+                            <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                            <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                         </tr>
                     `
                 }
@@ -316,7 +322,6 @@ function atualizarFeed() {
                 setTimeout(() => {
                     div_card.style.display = "none";
                     document.body.style.overflow = '';
-                    finalizarAguardar();
                 }, "2000")
             });
 

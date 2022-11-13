@@ -8,8 +8,10 @@ router.post("/cadastrarMusico/:idOrquestra", function (req, res) {
 });
 
 router.get("/listar/:idOrquestra", function (req, res) {
-    console.log('rotes');
     meusMusicosController.listar(req, res);
 });
 
+router.delete("/deletar/:idMusico", function (req, res) {
+    meusMusicosController.deletar(req, res);
+});
 module.exports = router;
