@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/cadastro.css">
-    <style>
-    </style>
 </head>
 
 <body>
@@ -63,7 +61,7 @@
                             <span>Celular:</span>
                             <i></i>
                         </div>
-                        <button onclick="Prox_passo()">Próximo Passo</button>
+                        <button id="btn_proxPasso" onclick="Prox_passo()">Próximo Passo</button>
                     </div>
                     <div class="form_login" id="form_login">
                         <h2>Informações de Login</h2>
@@ -78,13 +76,13 @@
                             <i></i>
                         </div>
                         <div class="form-box">
-                            <input type="text" id="in_confSenha" required="required">
+                            <input type="password" id="in_confSenha" required="required">
                             <span>Confirmar Senha:</span>
                             <i></i>
                         </div>
                         <div class="login-button">
                             <button onclick="ant_passo()">Passo anterior</button>
-                            <button onclick="">Cadastrar</button>
+                            <button onclick="cadastrar()">Cadastrar</button>
                         </div>
                     </div>
                 </div>
@@ -92,19 +90,29 @@
         </div>
     </section>
     <!-- FIM CADASTRO -->
-    
+
+
     <!-- loading-gif -->
-    <div class="loading-gif">
+    <div class="loading-gif" id="loading_gif">
         <div class="gif">
             <img class="gif-sax" src="./assets/imgs/sax.svg" height="100px" alt="">
             <img class="gif-nota1" src="./assets/imgs/nota.svg" height="50px" alt="">
             <img class="gif-nota2" src="./assets/imgs/nota.svg" height="50px" alt="">
             <img class="gif-nota3" src="./assets/imgs/nota.svg" height="50px" alt="">
         </div>
-        <h2>Carregando...</h2>
+        <h2>Cadastrando...</h2>
     </div>
     <!-- Fim loading-gif -->
+
+    <!-- card -->
+    <div class="msgCard" id="div_card">
+        <div class="mensagem">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
+    <!-- Fim card -->
 </body>
 
 </html>
+<script src="js/funcoes.js"></script>
 <script src="js/cadastro.js"></script>

@@ -51,12 +51,33 @@
                         <span>Senha:</span>
                         <i></i>
                     </div>
-                    <button>ENTRAR</button>
+                    <button onclick="entrar()">ENTRAR</button>
                 </div>
             </div>
         </div>
     </section>
     <!-- FIMLOGIN -->
+    <!-- loading-gif -->
+    <div class="loading-gif" id="loading_gif">
+        <div class="gif">
+            <img class="gif-sax" src="./assets/imgs/sax.svg" height="100px" alt="">
+            <img class="gif-nota1" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota2" src="./assets/imgs/nota.svg" height="50px" alt="">
+            <img class="gif-nota3" src="./assets/imgs/nota.svg" height="50px" alt="">
+        </div>
+        <h2>Fazendo Login...</h2>
+    </div>
+    <!-- Fim loading-gif -->
+
+    <!-- card -->
+    <div class="msgCard" id="div_card">
+        <div class="mensagem">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
+    <!-- Fim card -->
 </body>
 
 </html>
+<script src="js/funcoes.js"></script>
+<script src="js/login.js"></script>
