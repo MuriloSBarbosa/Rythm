@@ -58,7 +58,7 @@ function entrar() {
 
             setTimeout(() => {
                 window.location = "meusMusicos.html";
-            }, "2500")
+            }, "1500")
         } else {
 
             console.log("Houve um erro ao tentar realizar o login!");
@@ -81,8 +81,4 @@ function entrar() {
     })
 
     return false;
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none"
 }

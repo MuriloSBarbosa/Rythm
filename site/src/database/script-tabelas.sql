@@ -5,7 +5,7 @@ use Rythm;
 create table Orquestra(
 	idOrquestra int auto_increment primary key,
 	nome varchar(45),
-	login varchar(45),
+	login varchar(45) unique,
 	senha varchar(45)
 );
 

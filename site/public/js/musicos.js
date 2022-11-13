@@ -225,7 +225,7 @@ function adicionarMusico() {
                 div_card.style.display = "none";
                 finalizarAguardar();
                 window.location = "./meusMusicos.html";
-            }, "2500")
+            }, "1500")
 
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
@@ -298,7 +298,7 @@ function atualizarFeed() {
                 setTimeout(() => {
                     div_card.style.display = "none";
                     document.body.style.overflow = '';
-                }, "1000")
+                }, "1500")
             });
 
         } else {
@@ -393,7 +393,7 @@ function editar(idMusico) {
 
             setTimeout(() => {
                 window.location = "/meusMusicos.html";
-            }, "2500")
+            }, "1500")
 
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");

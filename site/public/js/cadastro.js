@@ -110,7 +110,7 @@ function cadastrar() {
 
             setTimeout(() => {
                 window.location = "login.html";
-            }, "3000")
+            }, "2000")
         } else {
             resposta.text().then(texto => {
                 console.log(texto);
@@ -120,7 +120,7 @@ function cadastrar() {
                 setTimeout(() => {
                     div_card.style.display = "none";
                     finalizarAguardar();
-                }, "4000")
+                }, "3000")
 
             });
             console.log("Houve um erro ao tentar realizar o cadastro!");
