@@ -8,8 +8,40 @@ function cadastrar(idOrquestra, nome, telefone, instrumento) {
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
     function publicar(): ${idOrquestra},${nome},${telefone},${instrumento}`);
 
-    var instrucao = `
-        INSERT INTO musico (nome,telefone,fkOrquestra,fkInstrumento) VALUES ('${nome}','${telefone}',${idOrquestra},${instrumento}); 
+    var instrucao = 
+    `
+        INSERT INTO musico (idMusico, nome, telefone, fkOrquestra, fkInstrumento)
+            VALUES
+                (
+                    (
+                        select
+                            if (
+                                count(m.idMusico) = 0,
+                                1,
+                                (
+                                    select
+                                        idMusico
+                                    from
+                                        Musico m
+                                        join orquestra o on m.fkOrquestra = o.idOrquestra
+                                    where
+                                        o.idOrquestra = ${idOrquestra}
+                                    order by
+                                        m.idMusico desc
+                                    limit 1
+                                ) + 1
+                            )
+                        from
+                            Musico m
+                            join orquestra o on m.fkOrquestra = o.idOrquestra
+                        where
+                            o.idOrquestra = ${idOrquestra}
+                    ),
+                    '${nome}',
+                    '${telefone}',
+                    ${idOrquestra},
+                    ${instrumento}
+            );
     `;
 
     return database.executar(instrucao)
@@ -65,9 +97,33 @@ function editar(idMusico, nome, telefone, instrumento) {
     return database.executar(instrucao);
 }
 
+
+function listarUm(idMusico) {
+    console.log(`ACESSEI O LISTAR UM MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function listar()`);
+
+    var instrucao = `
+   select m.idMusico,
+          m.nome,
+          i.naipe,
+          m.fkInstrumento as instrumento,
+          m.telefone     
+            from musico m join instrumento i 
+                on fkInstrumento = idInstrumento 
+                    where idMusico = ${idMusico}; 
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrar,
     listar,
     deletar,
-    editar
+    editar,
+    listarUm
 }

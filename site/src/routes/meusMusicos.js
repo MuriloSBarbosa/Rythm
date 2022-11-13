@@ -18,7 +18,10 @@ router.delete("/deletar/:idMusico", function (req, res) {
 router.put("/editar/:idMusico", function (req, res) {
     console.log('poura');
     meusMusicosController.editar(req, res);
+});
 
+router.get("/listarUm/:idMusico", function (req, res) {
+    meusMusicosController.listarUm(req, res);
 });
 
 module.exports = router;

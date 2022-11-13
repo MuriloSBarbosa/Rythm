@@ -536,7 +536,7 @@ footer {
 .msgCard {
     display: none;
     top: 10%;
-    position: absolute;
+    position: fixed;
     z-index: 999;
     justify-content: center;
     height: 100vh;

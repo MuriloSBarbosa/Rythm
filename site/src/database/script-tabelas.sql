@@ -28,7 +28,7 @@ create table Instrumento (
 create table Musico (
 	idMusico int auto_increment,
 	nome varchar(45),
-	cpf char(11),
+	telefone char(11),
 	fkOrquestra int,
 	foreign key (fkOrquestra) references orquestra(idOrquestra),
 	fkInstrumento int,
@@ -62,21 +62,6 @@ values
 	(null, 'Eufônio', 'metais'),
 	(null, 'Flugelhorn', 'metais');
 
--- insert into orquestra values(null,'ccb','123','ccb@','123');
--- insert into integrante values(null,'Murilo',1);
--- insert into integrante values(null,'Marcos',1);
--- insert into integrante values(null,'Vinicius',1);
--- insert into musico values(1,1,1);
--- insert into musico values(2,2,1);
--- insert into musico values(3,3,1);
--- -- Meus musicos
--- select  it.nome,
--- 		i.nome 
--- 			from musico m 
--- 				join instrumento i on m.fkInstrumento = i.idInstrumento
--- 				join orquestra o on o.idOrquestra = m.fkOrquestra
--- 				join integrante it on it.idIntegrante = m.fkMusico
--- 		where o.idOrquestra = 1;
 -- -- Musicos de cada classe 
 -- select  it.nome,
 -- 		i.nome 

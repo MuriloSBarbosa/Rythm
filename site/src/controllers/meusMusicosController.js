@@ -26,7 +26,7 @@ function cadastrarMusico(req, res) {
             .catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                    console.log("Houve um erro ao cadastra o músico: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -47,7 +47,7 @@ function listar(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os músicos: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -92,16 +92,40 @@ function editar(req, res) {
         .catch(
             function (erro) {
                 console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                console.log("Houve um erro ao realizar a edição: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
 }
 // ----------------- fim editar -------------------- //
 
+
+
+
+// ----------------- listarUm -------------------- //
+function listarUm(req, res) {
+    var idMusico = req.params.idMusico;
+    meusMusicosModel.listarUm(idMusico).then(function (resultado) {
+        if (resultado.length > 0) {
+            console.log(`Listando o Músico ${idMusico}`);
+            console.log(resultado);
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Não foi encontrado esse Músico!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os músicos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+// ----------------- fim listarUm -------------------- //
+
+
 module.exports = {
     cadastrarMusico,
     listar,
     deletar,
-    editar
+    editar,
+    listarUm
 }

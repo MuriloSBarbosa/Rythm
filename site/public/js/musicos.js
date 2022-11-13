@@ -23,11 +23,12 @@ function fechar_modalAdicionar() {
 }
 
 function abrir_modalEditar(idMusico) {
+    listarUm(idMusico);
     div_backgroundModal.style.display = 'flex';
     div_editarModal.style.display = 'block'
     document.body.style.overflow = 'hidden';
     btn_editar.addEventListener("click", function () {
-        editar(idMusico)
+        editar(idMusico);
     });
 }
 function fechar_modalEditar() {
@@ -348,12 +349,29 @@ function deletar_musico(idMusico) {
 
 
 // ------------------ Função de Editar Músico ------------------------//
-function listarInfosDeUm() {
-    
+function listarUm(idMusico) {
+    fetch(`/meusMusicos/listarUm/${idMusico}`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+                in_edtId.value = resposta[0].idMusico;
+                in_edtNome.value = resposta[0].nome;
+                sel_edtNaipe.value = resposta[0].naipe;
+                qual_edtNaipe();
+                sel_edtInstrumento.value = resposta[0].instrumento;
+                in_edtTelefone.value = resposta[0].telefone;
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+    });
 }
 
+
 function editar(idMusico) {
-    console.log("Criar função de editar musico - ID" + idMusico);
+    console.log("Criar função de editar musico - ID " + idMusico);
 
     fetch(`/meusMusicos/editar/${idMusico}`, {
         method: "PUT",
@@ -368,13 +386,14 @@ function editar(idMusico) {
     }).then(function (resposta) {
 
         if (resposta.ok) {
+            console.log(`ueeeeeeeee ${idMusico}`);
             var texto = `Músico ${idMusico} atualizado com sucesso!`;
             aparecer_card(texto);
             document.body.style.overflow = 'hidden';
 
             setTimeout(() => {
                 window.location = "/meusMusicos.html";
-            }, "1500")
+            }, "2500")
 
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
