@@ -566,3 +566,70 @@ footer {
 }
 
 /* ----------- Fim card --------- */
+
+
+/* --------- MENU ---------- */
+.menu {
+    position: fixed;
+    left: 0;
+    display: flex;
+    width: 24%;
+    height: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    border-right: #f27500 7px solid;
+}
+
+.menu .container {
+    flex-direction: column;
+    justify-content: space-between;
+    color: #dbdbdb;
+    padding: 4rem 0;
+}
+
+.bem-vindo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.bem-vindo span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f27500;
+}
+
+.lista li {
+    margin: 1rem 0;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: #dbdbdb 2px solid;
+}
+
+.lista li:hover {
+    transform: scale(1.1, 1.1);
+    transition: 400ms;
+    background-color: #f27500;
+}
+
+.lista li:active {
+    transform: scale(0.95, 0.95);
+}
+
+.sair {
+    color: #dbdbdb;
+    font-size: 1rem;
+    background-color: #d10202;
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+}
+
+.active-menu {
+    background-color: #f27500;
+}
+
+/* --------- FIM MENU ---------- */
