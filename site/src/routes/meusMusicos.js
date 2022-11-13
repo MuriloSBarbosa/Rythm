@@ -14,4 +14,11 @@ router.get("/listar/:idOrquestra", function (req, res) {
 router.delete("/deletar/:idMusico", function (req, res) {
     meusMusicosController.deletar(req, res);
 });
+
+router.put("/editar/:idMusico", function (req, res) {
+    console.log('poura');
+    meusMusicosController.editar(req, res);
+
+});
+
 module.exports = router;

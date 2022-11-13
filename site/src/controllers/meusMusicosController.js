@@ -1,5 +1,6 @@
 var meusMusicosModel = require("../models/meusMusicosModel");
 
+// ----------------- cadastrar -------------------- //
 function cadastrarMusico(req, res) {
 
     var idOrquestra = req.params.idOrquestra;
@@ -31,7 +32,10 @@ function cadastrarMusico(req, res) {
             );
     }
 }
+// ----------------- fim cadastrar -------------------- //
 
+
+// ----------------- listar -------------------- //
 function listar(req, res) {
     var idOrquestra = req.params.idOrquestra;
 
@@ -47,7 +51,10 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+// ----------------- fim listar -------------------- //
 
+
+// ----------------- deletar -------------------- //
 function deletar(req, res) {
     var idMusico = req.params.idMusico;
 
@@ -65,9 +72,36 @@ function deletar(req, res) {
             }
         );
 }
+// ----------------- fim deletar -------------------- //
+
+
+// ----------------- editar -------------------- //
+function editar(req, res) {
+
+    var idMusico = req.params.idMusico;
+    var nome = req.body.nomeServer;
+    var telefone = req.body.telefoneServer;
+    var instrumento = req.body.instrumentoServer;
+
+    meusMusicosModel.editar(idMusico, nome, telefone, instrumento)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+// ----------------- fim editar -------------------- //
 
 module.exports = {
     cadastrarMusico,
     listar,
-    deletar
+    deletar,
+    editar
 }

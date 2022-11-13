@@ -22,7 +22,7 @@ function Prox_passo() {
             form_orquestra.classList.remove('sumir-esquerdo');
             setTimeout(() => {
                 in_login.focus();
-            }, "300")
+            }, "500")
         }, "400")
     }
 }

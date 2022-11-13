@@ -1,3 +1,6 @@
+spn_orquestraNome.innerHTML = sessionStorage.NOME_ORQUESTRA;
+
+// ------------------ Funções de modal ------------------------//
 function abrir_modalAdicionar() {
     div_backgroundModal.style.display = 'flex';
     div_adicionarModal.style.display = 'block'
@@ -19,10 +22,13 @@ function fechar_modalAdicionar() {
     }, 500);
 }
 
-function abrir_modalEditar() {
+function abrir_modalEditar(idMusico) {
     div_backgroundModal.style.display = 'flex';
     div_editarModal.style.display = 'block'
     document.body.style.overflow = 'hidden';
+    btn_editar.addEventListener("click", function () {
+        editar(idMusico)
+    });
 }
 function fechar_modalEditar() {
     div_editarModal.classList.add('sumirModal');
@@ -33,6 +39,11 @@ function fechar_modalEditar() {
         document.body.style.overflow = '';
     }, 500);
 }
+
+// ------------------ FIM Funções de modal ------------------------//
+
+
+// ------------------ Funções de bloqueio pelo Naipe ------------------------//
 function qual_adcNaipe() {
     sel_adcInstrumento.innerHTML = "";
     var naipe = sel_adcNaipe.value;
@@ -94,40 +105,40 @@ function qual_edtNaipe() {
         if (naipe == 'cordas') {
             option =
                 `
-                                <option value="">-- escolha um --</option>
-                                <option value="1">Violino</option>
-                                <option value="2">Violoncelo</option>
-                                <option value="3">Contrabaixo</option>
-                                <option value="4">Harpa</option>
-                                <option value="5">Violão</option>
+                    <option value="">-- escolha um --</option>
+                    <option value="1">Violino</option>
+                    <option value="2">Violoncelo</option>
+                    <option value="3">Contrabaixo</option>
+                    <option value="4">Harpa</option>
+                    <option value="5">Violão</option>
                     `
         } else if (naipe == 'madeiras') {
             option =
                 `
-                                <option value="">-- escolha um --</option>
-                                <option value="6">Flauta</option>
-                                <option value="7">Oboé</option>
-                                <option value="8">Fagote</option>
-                                <option value="9">Contrafagote</option>
-                                <option value="10">Clarinete</option>
-                                <option value="11">Clarone</option>
-                                <option value="12">Corne Inglês</option>
-                                <option value="13">Saxofone Soprano</option>
-                                <option value="14">Saxofone Alto</option>
-                                <option value="15">Saxofone Tenor</option>
-                                <option value="16">Saxofone Baritono</option>
+                    <option value="">-- escolha um --</option>
+                    <option value="6">Flauta</option>
+                    <option value="7">Oboé</option>
+                    <option value="8">Fagote</option>
+                    <option value="9">Contrafagote</option>
+                    <option value="10">Clarinete</option>
+                    <option value="11">Clarone</option>
+                    <option value="12">Corne Inglês</option>
+                    <option value="13">Saxofone Soprano</option>
+                    <option value="14">Saxofone Alto</option>
+                    <option value="15">Saxofone Tenor</option>
+                    <option value="16">Saxofone Baritono</option>
                     `
         } else {
             option =
                 `
-                                <option value="">-- escolha um --</option>
-                                <option value="17">Trompete</option>
-                                <option value="18">Trompa</option>
-                                <option value="19">Trombone</option>
-                                <option value="20">Tuba</option>
-                                <option value="21">Eufônio</option>
-                                <option value="22">Flugelhorn</option>
-                `
+                    <option value="">-- escolha um --</option>
+                    <option value="17">Trompete</option>
+                    <option value="18">Trompa</option>
+                    <option value="19">Trombone</option>
+                    <option value="20">Tuba</option>
+                    <option value="21">Eufônio</option>
+                    <option value="22">Flugelhorn</option>
+                 `
         }
         sel_edtInstrumento.innerHTML = option;
         sel_edtInstrumento.disabled = false;
@@ -138,13 +149,11 @@ function qual_edtNaipe() {
         sel_edtInstrumento.innerHTML = option;
     }
 }
+// ------------------ Fim Funções de bloqueio pelo Naipe ------------------------//
 
 
-spn_orquestraNome.innerHTML = sessionStorage.NOME_ORQUESTRA;
 
-// function limparFormulario() {
-//     document.getElementById("form_postagem").reset();
-// }
+// ------------------ Função de Adicionar Músico ------------------------//
 
 function adicionarMusico() {
 
@@ -228,46 +237,12 @@ function adicionarMusico() {
     });
 
     return false;
-
 }
+// ------------------ Fim Função de Adicionar Músico ------------------------//
 
-function editar(idAviso) {
-    sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-    console.log("cliquei em editar - " + idAviso);
-    window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-    window.location = "/dashboard/edicao-aviso.html"
 
-}
 
-function deletar_musico(idMusico) {
-    console.log("Criar função de excluir musico - ID" + idMusico);
-
-    fetch(`/meusMusicos/deletar/${idMusico}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (resposta) {
-        aguardar();
-
-        if (resposta.ok) {
-            var texto = `Músico ${idMusico} deletado com sucesso!`;
-            aparecer_card(texto);
-            document.body.style.overflow = 'hidden';
-
-            setTimeout(() => {
-                window.location = "/meusMusicos.html";
-            }, "1500")
-
-        } else if (resposta.status == 404) {
-            window.alert("Deu 404!");
-        } else {
-            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
-}
+// ------------------ Função de Atualizar Feed ------------------------//
 
 function atualizarFeed() {
     var idOrquestra = sessionStorage.ID_ORQUESTRA;
@@ -322,7 +297,7 @@ function atualizarFeed() {
                 setTimeout(() => {
                     div_card.style.display = "none";
                     document.body.style.overflow = '';
-                }, "2000")
+                }, "1000")
             });
 
         } else {
@@ -333,4 +308,82 @@ function atualizarFeed() {
         finalizarAguardar();
     });
 }
+// ------------------ Fim Função de Atualizar Feed ------------------------//
 
+
+
+// ------------------ Função de Deletar Músico ------------------------//
+function deletar_musico(idMusico) {
+    console.log("Criar função de excluir musico - ID" + idMusico);
+
+    fetch(`/meusMusicos/deletar/${idMusico}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+        aguardar();
+
+        if (resposta.ok) {
+            var texto = `Músico ${idMusico} deletado com sucesso!`;
+            aparecer_card(texto);
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                window.location = "/meusMusicos.html";
+            }, "1500")
+
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+// ------------------ Fim Função de Deletar Músico ------------------------//
+
+
+
+
+// ------------------ Função de Editar Músico ------------------------//
+function listarInfosDeUm() {
+    
+}
+
+function editar(idMusico) {
+    console.log("Criar função de editar musico - ID" + idMusico);
+
+    fetch(`/meusMusicos/editar/${idMusico}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeServer: in_edtNome.value,
+            telefoneServer: in_edtTelefone.value,
+            instrumentoServer: sel_edtInstrumento.value,
+        })
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            var texto = `Músico ${idMusico} atualizado com sucesso!`;
+            aparecer_card(texto);
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                window.location = "/meusMusicos.html";
+            }, "1500")
+
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+// ------------------ Fim Função de Editar Músico ------------------------//

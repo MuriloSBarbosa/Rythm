@@ -50,8 +50,24 @@ function deletar(idMusico) {
     return database.executar(instrucao);
 }
 
+function editar(idMusico, nome, telefone, instrumento) {
+    console.log(`ACESSEI O EDITAR MODEL \n \n\t\t 
+    >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
+    >> verifique suas credenciais de acesso ao banco\n \t\t 
+    >> e se o servidor de seu BD está rodando corretamente. \n\n 
+    function editar(): " ${idMusico},${nome},${telefone},${instrumento}`);
+
+    var instrucao = `
+        UPDATE musico SET nome = '${nome}', telefone = '${telefone}', fkInstrumento = '${instrumento}' WHERE idMusico = ${idMusico};
+`;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrar,
     listar,
-    deletar
+    deletar,
+    editar
 }
