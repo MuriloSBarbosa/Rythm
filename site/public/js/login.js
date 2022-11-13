@@ -57,7 +57,7 @@ function entrar() {
             }, "3000")
 
             setTimeout(() => {
-                window.location = "meusMusicos.html";
+                window.location = "./RythmSystem/meusMusicos.html";
             }, "1500")
         } else {
 

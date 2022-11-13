@@ -351,7 +351,7 @@ function deletar_musico(idMusico) {
             document.body.style.overflow = 'hidden';
 
             setTimeout(() => {
-                window.location = "/meusMusicos.html";
+                window.location = "./meusMusicos.html";
             }, "1500")
 
         } else if (resposta.status == 404) {
@@ -412,7 +412,7 @@ function editar(idMusico) {
             document.body.style.overflow = 'hidden';
 
             setTimeout(() => {
-                window.location = "/meusMusicos.html";
+                window.location = "./meusMusicos.html";
             }, "1500")
 
         } else if (resposta.status == 404) {
