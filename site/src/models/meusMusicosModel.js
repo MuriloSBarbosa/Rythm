@@ -103,7 +103,7 @@ function listarUm(idMusico) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function listar()`);
+    function listarUm()`);
 
     var instrucao = `
    select m.idMusico,
@@ -127,7 +127,7 @@ function pesquisarNome(idOrquestra, pesquisa) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+    function pesquisarNome() ${idOrquestra}, ${pesquisa}`);
 
     var instrucao = `
     select m.idMusico,
@@ -150,7 +150,7 @@ function pesquisarInstrumento(idOrquestra, pesquisa) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+    function pesquisarIntrumento() ${idOrquestra}, ${pesquisa}`);
 
     var instrucao = `
     select m.idMusico,
@@ -174,7 +174,7 @@ function pesquisarNaipe(idOrquestra, pesquisa) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+    function pesquisarNaipe() ${idOrquestra}, ${pesquisa}`);
 
     var instrucao = `
     select m.idMusico,
@@ -197,7 +197,7 @@ function pesquisarTelefone(idOrquestra, pesquisa) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function pesquisarDescricao() ${idOrquestra}, ${pesquisa}`);
+    function pesquisarTelefone() ${idOrquestra}, ${pesquisa}`);
 
     var instrucao = `
     select m.idMusico,

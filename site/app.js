@@ -11,6 +11,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var orquestraRouter = require("./src/routes/orquestra");
 var meusMusicosRouter = require("./src/routes/meusMusicos");
+var graficosRouter = require("./src/routes/graficos");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,6 +22,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/orquestra", orquestraRouter);
 app.use("/meusMusicos", meusMusicosRouter);
+app.use("/graficos", graficosRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

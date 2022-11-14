@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rythm: Meus Musicos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/graficosInstrumentos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="validarSessao()">
+    <div class="menu">
+        <div class="container">
+            <div class="logo">
+                <h2>LOGO</h2>
+            </div>
+            <div class="bem-vindo">
+                <h2>Bem Vindo,</h2>
+                <span id="spn_orquestraNome">Nome Orquestra</span>
+            </div>
+            <div class="indices">
+                <ul class="lista">
+                    <a href="meusMusicos.html">
+                        <li>Músicos</li>
+                    </a>
+                    <a href="">
+                        <li>Naipes</li>
+                    </a>
+                    <a href="intrumentos.html">
+                        <li class="active-menu">Instrumentos</li>
+                    </a>
+                    <a href="">
+                        <li>Partituras</li>
+                    </a>
+                </ul>
+            </div>
+            <div>
+                <button class="sair" onclick="limparSessao()">sair</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="content-instrumentos">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Instrumentos da Orquestra</h2>
+                </div>
+                <div class="tipo-grafico">
+                    <button class="btnGeral" id="btn_Geral"
+                        onclick="obterDadosGrafico(idOrquestra,'geral')">Geral</button>
+                    <button class="btnCordas" id="btn_Cordas"
+                        onclick="obterDadosGrafico(idOrquestra,'cordas')">Cordas</button>
+                    <button class="btnMadeiras" id="btn_Madeiras"
+                        onclick="obterDadosGrafico(idOrquestra,'madeiras')">Madeiras</button>
+                    <button class="btnMetais" id="btn_Metais"
+                        onclick="obterDadosGrafico(idOrquestra,'metais')">Metais</button>
+                </div>
+                <div class="nenhum-cadastrado" id="nenhum_cadastrado">
+                    <h2 id="h2_nenhumAchado"></h2>
+                </div>
+                <div class="grafico" id="div_ChartGeral">
+                    <canvas id="chartGeral"></canvas>
+                </div>
+                <div class="grafico" id="div_ChartCordas">
+                    <canvas id="chartCordas"></canvas>
+                </div>
+                <div class="grafico" id="div_ChartMadeiras">
+                    <canvas id="chartMadeiras"></canvas>
+                </div>
+                <div class="grafico" id="div_ChartMetais">
+                    <canvas id="chartMetais"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- card -->
+    <div class="msgCard" id="div_card">
+        <div class="mensagem">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
+    <!-- Fim card -->
+
+</body>
+
+</html>
+<script src="../js/graficosInstrumentos.js"></script>
+<script src="../js/funcoes.js"></script>
