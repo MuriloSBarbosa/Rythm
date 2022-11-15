@@ -19,8 +19,20 @@ function obterDados(req, res) {
             console.log("Houve um erro ao buscar", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
+    } else if (tipo == 'naipes') {
+        graficosModel.obterDadosNaipe(idOrquestra).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum instrumento cadastrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
     } else {
-        graficosModel.obterDadosTipo(idOrquestra,tipo).then(function (resultado) {
+        graficosModel.obterDadosTipo(idOrquestra, tipo).then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
             } else {

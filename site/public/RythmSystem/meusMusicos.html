@@ -27,7 +27,7 @@
                     <a href="meusMusicos.html">
                         <li class="active-menu">Músicos</li>
                     </a>
-                    <a href="">
+                    <a href="naipes.html">
                         <li>Naipes</li>
                     </a>
                     <a href="instrumentos.html">
@@ -93,11 +93,11 @@
                 <div class="modal-form">
                     <div class="modal-box">
                         <label for="in_adcNome">Nome</label>
-                        <input type="text" id="in_adcNome">
+                        <input type="text" maxlength="45" id="in_adcNome">
                     </div>
                     <div class="modal-box">
                         <label for="in_adcTelefone">Telefone</label>
-                        <input type="text" id="in_adcTelefone">
+                        <input type="text" id="in_adcTelefone" maxlength="11">
                     </div>
                     <div class="modal-box">
                         <label for="sel_adcInstrumento">Naipe do Instrumento</label>
@@ -135,7 +135,11 @@
                     </div>
                     <div class="modal-box">
                         <label for="in_edtNome">Nome</label>
-                        <input id="in_edtNome" type="text">
+                        <input id="in_edtNome" maxlength="45" type="text">
+                    </div>
+                    <div class="modal-box">
+                        <label for="in_edtTelefone">Telefone</label>
+                        <input id="in_edtTelefone" maxlength="11" type="text">
                     </div>
                     <div class="modal-box">
                         <label for="sel_adcInstrumento">Naipe do Instrumento</label>
@@ -151,10 +155,6 @@
                         <select id="sel_edtInstrumento" disabled>
                             <option value="">-- Selecione um naipe --</option>
                         </select>
-                    </div>
-                    <div class="modal-box">
-                        <label for="in_edtTelefone">Telefone</label>
-                        <input id="in_edtTelefone" type="text">
                     </div>
                 </div>
             </div>

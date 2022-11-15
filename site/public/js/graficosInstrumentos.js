@@ -1,7 +1,16 @@
 var idOrquestra = sessionStorage.ID_ORQUESTRA;
 
+var texto = 'Carregando gráficos';
+aparecer_card(texto);
+document.body.style.overflow = 'hidden';
+setTimeout(() => {
+    div_card.style.display = "none";
+    document.body.style.overflow = '';
+}, "1500")
+
 function obterDadosGrafico(idOrquestra, tipo) {
 
+    indicesGrafico.style.display = 'none';
     fetch(`/graficos/obterDados/${idOrquestra}/${tipo}`, {
         cache: 'no-store'
     })
@@ -30,51 +39,60 @@ function obterDadosGrafico(idOrquestra, tipo) {
                         h2_nenhumAchado.innerHTML = `Nenhum instrumento de metais cadastrado`;
                     }
                 } else {
+
+                    indicesGrafico.style.display = 'block';
+
                     if (tipo == 'geral') {
                         btn_Geral.classList.add('btnGeral-active');
                         div_ChartGeral.style.display = 'block';
-                        var cor = 'rgb(255, 99, 132, 1)';
+                        var cor = '#3ec5ff';
                         var chart = 'chartGeral';
+                        indicesGrafico.style.color = cor;
+
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
+                            texto_indice.innerHTML = `Total de intrumentos: ${resposta.length}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'cordas') {
                         btn_Cordas.classList.add('btnCordas-active');
                         div_ChartCordas.style.display = 'block';
-                        var cor = '#f27500';
+                        var cor = '#ffb066';
                         var chart = 'chartCordas';
+                        indicesGrafico.style.color = cor;
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
+                            texto_indice.innerHTML = `Total de cordas: ${resposta.length}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'madeiras') {
                         btn_Madeiras.classList.add('btnMadeiras-active');
                         div_ChartMadeiras.style.display = 'block';
-                        var cor = '#00bbff';
+                        var cor = '#f27500';
                         var chart = 'chartMadeiras';
+                        indicesGrafico.style.color = cor;
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
+                            texto_indice.innerHTML = `Total de madeiras: ${resposta.length}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else {
                         btn_Metais.classList.add('btnMetais-active');
                         div_ChartMetais.style.display = 'block';
-                        var cor = '#000';
+                        var cor = '#232323';
                         var chart = 'chartMetais';
+                        indicesGrafico.style.color = '#fff';
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
+                            texto_indice.innerHTML = `Total de metais: ${resposta.length}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     }
+
                 }
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');

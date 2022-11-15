@@ -28,10 +28,10 @@
                     <a href="meusMusicos.html">
                         <li>Músicos</li>
                     </a>
-                    <a href="">
+                    <a href="naipes.html">
                         <li>Naipes</li>
                     </a>
-                    <a href="intrumentos.html">
+                    <a href="instrumentos.html">
                         <li class="active-menu">Instrumentos</li>
                     </a>
                     <a href="">
@@ -61,20 +61,25 @@
                     <button class="btnMetais" id="btn_Metais"
                         onclick="obterDadosGrafico(idOrquestra,'metais')">Metais</button>
                 </div>
-                <div class="nenhum-cadastrado" id="nenhum_cadastrado">
-                    <h2 id="h2_nenhumAchado"></h2>
+                <div class="graficos">
+                    <div class="nenhum-cadastrado" id="nenhum_cadastrado">
+                        <h2 id="h2_nenhumAchado"></h2>
+                    </div>
+                    <div class="grafico" id="div_ChartGeral">
+                        <canvas id="chartGeral"></canvas>
+                    </div>
+                    <div class="grafico" id="div_ChartCordas">
+                        <canvas id="chartCordas"></canvas>
+                    </div>
+                    <div class="grafico" id="div_ChartMadeiras">
+                        <canvas id="chartMadeiras"></canvas>
+                    </div>
+                    <div class="grafico" id="div_ChartMetais">
+                        <canvas id="chartMetais"></canvas>
+                    </div>
                 </div>
-                <div class="grafico" id="div_ChartGeral">
-                    <canvas id="chartGeral"></canvas>
-                </div>
-                <div class="grafico" id="div_ChartCordas">
-                    <canvas id="chartCordas"></canvas>
-                </div>
-                <div class="grafico" id="div_ChartMadeiras">
-                    <canvas id="chartMadeiras"></canvas>
-                </div>
-                <div class="grafico" id="div_ChartMetais">
-                    <canvas id="chartMetais"></canvas>
+                <div class="indicesGrafico" id="indicesGrafico">
+                    <h2 id="texto_indice"></h2>
                 </div>
             </div>
         </div>
@@ -92,5 +97,5 @@
 </body>
 
 </html>
-<script src="../js/graficosInstrumentos.js"></script>
 <script src="../js/funcoes.js"></script>
+<script src="../js/graficosInstrumentos.js"></script>

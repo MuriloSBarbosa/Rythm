@@ -56,9 +56,10 @@ function listar(req, res) {
 
 // ----------------- deletar -------------------- //
 function deletar(req, res) {
+    var idOrquestra = req.params.idOrquestra;
     var idMusico = req.params.idMusico;
 
-    meusMusicosModel.deletar(idMusico)
+    meusMusicosModel.deletar(idOrquestra, idMusico)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -78,12 +79,13 @@ function deletar(req, res) {
 // ----------------- editar -------------------- //
 function editar(req, res) {
 
+    var idOrquestra = req.params.idOrquestra;
     var idMusico = req.params.idMusico;
     var nome = req.body.nomeServer;
     var telefone = req.body.telefoneServer;
     var instrumento = req.body.instrumentoServer;
 
-    meusMusicosModel.editar(idMusico, nome, telefone, instrumento)
+    meusMusicosModel.editar(idOrquestra,idMusico, nome, telefone, instrumento)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -104,8 +106,9 @@ function editar(req, res) {
 
 // ----------------- listarUm -------------------- //
 function listarUm(req, res) {
+    var idOrquestra = req.params.idOrquestra;
     var idMusico = req.params.idMusico;
-    meusMusicosModel.listarUm(idMusico).then(function (resultado) {
+    meusMusicosModel.listarUm(idOrquestra,idMusico).then(function (resultado) {
         if (resultado.length > 0) {
             console.log(`Listando o Músico ${idMusico}`);
             console.log(resultado);
@@ -182,7 +185,7 @@ function pesquisarInstrumento(req, res) {
 function pesquisarNaipe(req, res) {
     var idOrquestra = req.params.idOrquestra;
     var pesquisa = req.params.pesquisa;
-    
+
     meusMusicosModel.pesquisarNaipe(idOrquestra, pesquisa)
         .then(
             function (resultado) {

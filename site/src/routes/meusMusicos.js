@@ -11,16 +11,16 @@ router.get("/listar/:idOrquestra", function (req, res) {
     meusMusicosController.listar(req, res);
 });
 
-router.delete("/deletar/:idMusico", function (req, res) {
+router.delete("/deletar/:idOrquestra/:idMusico", function (req, res) {
     meusMusicosController.deletar(req, res);
 });
 
-router.put("/editar/:idMusico", function (req, res) {
+router.put("/editar/:idOrquestra/:idMusico", function (req, res) {
     console.log('poura');
     meusMusicosController.editar(req, res);
 });
 
-router.get("/listarUm/:idMusico", function (req, res) {
+router.get("/listarUm/:idOrquestra/:idMusico", function (req, res) {
     meusMusicosController.listarUm(req, res);
 });
 

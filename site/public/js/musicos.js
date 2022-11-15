@@ -22,13 +22,15 @@ function fechar_modalAdicionar() {
     }, 500);
 }
 
-function abrir_modalEditar(idMusico) {
-    listarUm(idMusico);
+function abrir_modalEditar(idOrquestra, idMusico) {
+    console.log(idOrquestra);
+
+    listarUm(idOrquestra, idMusico);
     div_backgroundModal.style.display = 'flex';
     div_editarModal.style.display = 'block'
     document.body.style.overflow = 'hidden';
     btn_editar.addEventListener("click", function () {
-        editar(idMusico);
+        editar(idOrquestra, idMusico);
     });
 }
 function fechar_modalEditar() {
@@ -186,22 +188,17 @@ function adicionarMusico() {
 
     in_adcNome.parentElement.childNodes[1].style.color = '#000';
     in_adcNome.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(0 0 0 / 30%)';
-    in_adcTelefone.parentElement.childNodes[1].style.color = '#000';
-    in_adcTelefone.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(0 0 0 / 30%)';
     sel_adcInstrumento.parentElement.childNodes[1].style.color = '#000';
     sel_adcInstrumento.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(0 0 0 / 30%)';
     sel_adcNaipe.parentElement.childNodes[1].style.color = '#000';
     sel_adcNaipe.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(0 0 0 / 30%)';
 
-    if (nome == "" || telefone == "" || instrumento == "" || naipe == "") {
+    if (nome == "" || instrumento == "" || naipe == "") {
         if (nome == "") {
             in_adcNome.parentElement.childNodes[1].style.color = 'red';
             in_adcNome.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(255 0 0 / 30%)';
         }
-        if (telefone == "") {
-            in_adcTelefone.parentElement.childNodes[1].style.color = 'red';
-            in_adcTelefone.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(255 0 0 / 30%)';
-        }
+
         if (instrumento == "") {
             sel_adcInstrumento.parentElement.childNodes[1].style.color = 'red';
             sel_adcInstrumento.parentElement.childNodes[3].style.boxShadow = '0 0 3px rgb(255 0 0 / 30%)';
@@ -310,8 +307,8 @@ function atualizarFeed() {
                             <td>${musico.nome}</td>
                             <td>${musico.instrumento}</td>
                             <td>${musico.telefone}</td>
-                            <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
-                            <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                            <td><button onclick="deletar_musico(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                            <td><button onclick="abrir_modalEditar(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                         </tr>
                     `
                 }
@@ -334,10 +331,10 @@ function atualizarFeed() {
 
 
 // ------------------ Função de Deletar Músico ------------------------//
-function deletar_musico(idMusico) {
+function deletar_musico(idOrquestra, idMusico) {
     console.log("Criar função de excluir musico - ID" + idMusico);
 
-    fetch(`/meusMusicos/deletar/${idMusico}`, {
+    fetch(`/meusMusicos/deletar/${idOrquestra}/${idMusico}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -369,8 +366,9 @@ function deletar_musico(idMusico) {
 
 
 // ------------------ Função de Editar Músico ------------------------//
-function listarUm(idMusico) {
-    fetch(`/meusMusicos/listarUm/${idMusico}`).then(function (resposta) {
+function listarUm(idOrquestra, idMusico) {
+
+    fetch(`/meusMusicos/listarUm/${idOrquestra}/${idMusico}`).then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
@@ -390,10 +388,10 @@ function listarUm(idMusico) {
 }
 
 
-function editar(idMusico) {
+function editar(idOrquestra, idMusico) {
     console.log("Criar função de editar musico - ID " + idMusico);
 
-    fetch(`/meusMusicos/editar/${idMusico}`, {
+    fetch(`/meusMusicos/editar/${idOrquestra}/${idMusico}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -406,7 +404,6 @@ function editar(idMusico) {
     }).then(function (resposta) {
 
         if (resposta.ok) {
-            console.log(`ueeeeeeeee ${idMusico}`);
             var texto = `Músico ${idMusico} atualizado com sucesso!`;
             aparecer_card(texto);
             document.body.style.overflow = 'hidden';
@@ -511,8 +508,8 @@ function pesquisar() {
                                 <td>${musico.nome}</td>
                                 <td>${musico.instrumento}</td>
                                 <td>${musico.telefone}</td>
-                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
-                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                                <td><button onclick="deletar_musico(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                             </tr>
                         `
                         }
@@ -578,8 +575,8 @@ function pesquisar() {
                                 <td>${musico.nome}</td>
                                 <td>${musico.instrumento}</td>
                                 <td>${musico.telefone}</td>
-                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
-                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                                <td><button onclick="deletar_musico(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                             </tr>
                         `
                         }
@@ -645,8 +642,8 @@ function pesquisar() {
                                 <td>${musico.nome}</td>
                                 <td>${musico.instrumento}</td>
                                 <td>${musico.telefone}</td>
-                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
-                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                                <td><button onclick="deletar_musico(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                             </tr>
                         `
                         }
@@ -712,8 +709,8 @@ function pesquisar() {
                                 <td>${musico.nome}</td>
                                 <td>${musico.instrumento}</td>
                                 <td>${musico.telefone}</td>
-                                <td><button onclick="deletar_musico(${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
-                                <td><button onclick="abrir_modalEditar(${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
+                                <td><button onclick="deletar_musico(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lixo.svg"></button></td>
+                                <td><button onclick="abrir_modalEditar(${idOrquestra},${musico.idMusico})"><img src="/assets/imgs/lapis.svg"></button></td>
                             </tr>
                         `
                         }
@@ -734,9 +731,5 @@ function pesquisar() {
     }
 }
 // ------------------ Fim Pesquisa de Músico ------------------------//
-
-// ------------------- Ordernar por atributos ---------------------- //
-
-// ------------------- Fim Ordernar por atributos ---------------------- //
 
 
