@@ -159,7 +159,7 @@ function pesquisarInstrumento(idOrquestra, pesquisa) {
     m.telefone     
       from musico m join instrumento i 
           on fkInstrumento = idInstrumento 
-              where fkOrquestra = ${idOrquestra} and i.nome = '${pesquisa}'; 
+              where fkOrquestra = ${idOrquestra} and i.nome like '%${pesquisa}%'; 
             
     `;
 

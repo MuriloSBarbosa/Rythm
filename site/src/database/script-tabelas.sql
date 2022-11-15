@@ -61,12 +61,3 @@ values
 	(null, 'Tuba', 'metais'),
 	(null, 'Eufônio', 'metais'),
 	(null, 'Flugelhorn', 'metais');
-
--- -- Musicos de cada classe 
--- select  it.nome,
--- 		i.nome 
--- 			from musico m 
--- 				join instrumento i on m.fkInstrumento = i.idInstrumento
--- 				join orquestra o on o.idOrquestra = m.fkOrquestra
--- 				join integrante it on it.idIntegrante = m.fkMusico
--- 		where o.idOrquestra = 1 and i.naipe = "madeira";
