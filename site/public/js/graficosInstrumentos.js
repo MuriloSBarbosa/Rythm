@@ -52,7 +52,14 @@ function obterDadosGrafico(idOrquestra, tipo) {
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            texto_indice.innerHTML = `Total de intrumentos: ${resposta.length}`;
+
+                            var geral = 0;
+                            for (i = 0; i < resposta.length; i++) {
+                                var registro = resposta[i];
+                                geral += registro.qtdInstrumento;
+                            }
+
+                            texto_indice.innerHTML = `Total de instrumentos: ${geral}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'cordas') {
@@ -64,7 +71,14 @@ function obterDadosGrafico(idOrquestra, tipo) {
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            texto_indice.innerHTML = `Total de cordas: ${resposta.length}`;
+
+                            var cordas = 0;
+                            for (i = 0; i < resposta.length; i++) {
+                                var registro = resposta[i];
+                                cordas += registro.qtdInstrumento;
+                            }
+
+                            texto_indice.innerHTML = `Total de cordas: ${cordas}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'madeiras') {
@@ -76,7 +90,14 @@ function obterDadosGrafico(idOrquestra, tipo) {
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            texto_indice.innerHTML = `Total de madeiras: ${resposta.length}`;
+
+                            var madeiras = 0;
+                            for (i = 0; i < resposta.length; i++) {
+                                var registro = resposta[i];
+                                madeiras += registro.qtdInstrumento;
+                            }
+
+                            texto_indice.innerHTML = `Total de madeiras: ${madeiras}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else {
@@ -88,7 +109,14 @@ function obterDadosGrafico(idOrquestra, tipo) {
                         response.json().then(function (resposta) {
 
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            texto_indice.innerHTML = `Total de metais: ${resposta.length}`;
+
+                            var metais = 0;
+                            for (i = 0; i < resposta.length; i++) {
+                                var registro = resposta[i];
+                                metais += registro.qtdInstrumento;
+                            }
+
+                            texto_indice.innerHTML = `Total de metais: ${metais}`;
                             plotarGrafico(resposta, cor, chart);
                         });
                     }
