@@ -150,7 +150,7 @@ function pesquisarInstrumento(idOrquestra, pesquisa) {
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
     >> e se o servidor de seu BD está rodando corretamente. \n\n 
-    function pesquisarIntrumento() ${idOrquestra}, ${pesquisa}`);
+    function pesquisarInstrumento() ${idOrquestra}, ${pesquisa}`);
 
     var instrucao = `
     select m.idMusico,
