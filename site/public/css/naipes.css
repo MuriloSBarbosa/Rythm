@@ -230,7 +230,6 @@ body {
 .modal-button button {
     padding: 8px 12px;
     border-radius: 0 0 7px 7px;
-    border-top: 1px solid #d10202;
     color: #d10202;
     width: 100%;
 }
