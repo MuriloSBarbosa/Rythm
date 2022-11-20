@@ -108,6 +108,10 @@ body {
     text-align: center;
 }
 
+.btn-ideal {
+    background-color: #00cf00;
+}
+
 .porcento_madeiras {
     background-color: rgb(255, 99, 132);
 }
@@ -119,3 +123,124 @@ body {
 .porcento_metais {
     background-color: rgb(255, 205, 86);
 }
+
+
+/* --------- Modal  ---------- */
+
+.background-modal {
+    display: none;
+    position: absolute;
+    margin-left: 24%;
+    width: 76%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.modal {
+    display: none;
+    position: relative;
+    z-index: 99;
+    top: 0;
+    width: max-content;
+    background-color: #f5f5f5;
+    animation: surgir-modal 500ms ease;
+    min-width: 350px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #000;
+    margin-top: 2rem;
+}
+
+@keyframes surgir-modal {
+    0% {
+        transform: translateY(-200%)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.sumirModal {
+    animation: sumir-modal 500ms ease;
+}
+
+@keyframes sumir-modal {
+    0% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: translateY(-200%)
+    }
+}
+
+.modal-head {
+    padding: 0.8rem 2.5rem;
+    text-align: center;
+    background-color: #00cf00;
+    color: #ffffff;
+}
+
+.modal-head h2 {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.modal-boxes {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+
+.modal-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    padding: 10px 12px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-button button {
+    padding: 8px 12px;
+    border-radius: 0 0 7px 7px;
+    border-top: 1px solid #d10202;
+    color: #d10202;
+    width: 100%;
+}
+
+.modal-button button:hover,
+.modal-button button:focus {
+    background-color: #d10202;
+    color: #ffffff;
+    transform: scale(1);
+}
+
+
+/* --------- FIM Modal ---------- */

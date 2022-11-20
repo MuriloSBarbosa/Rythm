@@ -122,4 +122,24 @@ function plotarGrafico(resposta) {
 }
 
 
-obterDadosGrafico(idOrquestra, 'naipes');    
+obterDadosGrafico(idOrquestra, 'naipes');
+
+function ver_modal() {
+    if (div_backgroundModal.style.display != 'flex') {
+
+        div_backgroundModal.style.display = 'flex';
+        div_adicionarModal.style.display = 'block';
+    }
+}
+
+function fechar_modal() {
+    div_adicionarModal.classList.add('sumirModal');
+
+    setTimeout(() => {
+        div_backgroundModal.style.display = 'none';
+        div_adicionarModal.classList.remove('sumirModal');
+        div_adicionarModal.style.display = 'none'
+        document.body.style.overflow = '';
+    }, 500);
+
+}

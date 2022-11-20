@@ -43,6 +43,34 @@
     </div>
 
     <div class="dashboard">
+        <div class="background-modal" id="div_backgroundModal">
+            <div class="modal modal-adicionar" id="div_adicionarModal">
+                <div class="modal-head">
+                    <h2>Porcentagem ideal de cada naipe</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-boxes">
+                        <div class="modal-box porcento_cordas">
+                            <h2>Cordas</h2>
+                            <h3>50%</h3>
+                        </div>
+                        <div class="modal-box porcento_madeiras">
+                            <h2>Madeiras</h2>
+                            <h3>25%</h3>
+                        </div>
+                        <div class="modal-box porcento_metais">
+                            <h2>Metais</h2>
+                            <h3>25%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-button">
+                        <button onclick="fechar_modal()">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content-naipes">
             <div class="container">
                 <div class="titulo">
@@ -71,6 +99,9 @@
                             <div class="box porcento_metais">
                                 <h2>Metais</h2>
                                 <span id="porcento_metais">0</span>%
+                            </div>
+                            <div>
+                                <button onclick="ver_modal()" class="box btn-ideal">Ver % ideal</button>
                             </div>
                         </div>
                     </div>
