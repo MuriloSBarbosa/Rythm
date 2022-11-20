@@ -3,6 +3,17 @@ body {
     overflow: hidden;
 }
 
+.cordefundo {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4) ;
+    right: 0;
+    z-index: -1;
+    animation: aparecer-grafico 500ms ease-in-out;
+}
+
 /* --------- INSTRUMENTOS ---------- */
 .dashboard {
     margin-left: 24%;
@@ -57,6 +68,7 @@ body {
     padding: 10px;
     animation: aparecer-grafico 500ms ease-in-out;
     box-shadow: 0 0 7px #00000086;
+    background-color: #f3f3f3;
 
 }
 
@@ -96,7 +108,7 @@ body {
 .btnGeral-active {
     background-color: #f27500;
     color: #000;
-    border: 1px solid  #000;
+    border: 1px solid #000;
 }
 
 .btnCordas {
@@ -110,7 +122,7 @@ body {
 .btnCordas-active {
     background-color: rgb(54, 162, 235);
     color: #000;
-    border: 1px solid  #000;
+    border: 1px solid #000;
 }
 
 
@@ -125,22 +137,22 @@ body {
 .btnMadeiras-active {
     background-color: rgb(255, 99, 132);
     color: #000;
-    border: 1px solid  #000;
+    border: 1px solid #000;
 }
 
 
 .btnMetais {
-    border: 1px solid  rgb(255, 205, 86);
-    color:  rgb(255, 205, 86);
-    box-shadow: 0 0 4px  rgb(255, 205, 86)
+    border: 1px solid rgb(255, 205, 86);
+    color: rgb(255, 205, 86);
+    box-shadow: 0 0 4px rgb(255, 205, 86)
 }
 
 .btnMetais:focus,
 .btnMetais:hover,
 .btnMetais-active {
-    background-color:  rgb(255, 205, 86);
+    background-color: rgb(255, 205, 86);
     color: #000;
-    border: 1px solid  #000;
+    border: 1px solid #000;
 }
 
 .indicesGrafico {
@@ -151,7 +163,7 @@ body {
 .indicesGrafico h2 {
     position: relative;
     box-shadow: 0 0 4px #000;
-    background-color: #000;
+    background-color: #f3f3f3;
     font-size: 1.5rem;
     font-weight: 600;
     padding: 1rem;
@@ -161,8 +173,8 @@ body {
 
 @keyframes aparecer-indiceh2 {
     0% {
-        letter-spacing: -10px;
-        color: #000;
+        letter-spacing: -12px;
+        color: transparent;
     }
 
 }
