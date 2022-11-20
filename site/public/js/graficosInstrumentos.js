@@ -45,7 +45,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                     if (tipo == 'geral') {
                         btn_Geral.classList.add('btnGeral-active');
                         div_ChartGeral.style.display = 'block';
-                        var cor = '#3ec5ff';
+                        var cor = '#f27500';
                         var chart = 'chartGeral';
                         indicesGrafico.style.color = cor;
 
@@ -65,7 +65,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                     } else if (tipo == 'cordas') {
                         btn_Cordas.classList.add('btnCordas-active');
                         div_ChartCordas.style.display = 'block';
-                        var cor = '#ffb066';
+                        var cor = 'rgb(54, 162, 235)';
                         var chart = 'chartCordas';
                         indicesGrafico.style.color = cor;
                         response.json().then(function (resposta) {
@@ -84,7 +84,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                     } else if (tipo == 'madeiras') {
                         btn_Madeiras.classList.add('btnMadeiras-active');
                         div_ChartMadeiras.style.display = 'block';
-                        var cor = '#f27500';
+                        var cor = 'rgb(255, 99, 132)';
                         var chart = 'chartMadeiras';
                         indicesGrafico.style.color = cor;
                         response.json().then(function (resposta) {
@@ -103,7 +103,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                     } else {
                         btn_Metais.classList.add('btnMetais-active');
                         div_ChartMetais.style.display = 'block';
-                        var cor = '#232323';
+                        var cor = 'rgb(255, 205, 86)';
                         var chart = 'chartMetais';
                         indicesGrafico.style.color = '#fff';
                         response.json().then(function (resposta) {
