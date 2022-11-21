@@ -43,8 +43,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                     indicesGrafico.style.display = 'block';
 
                     if (tipo == 'geral') {
-                        document.querySelector(".cordefundo").style.background = ' rgb(255,89,0)';
-                        document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg,rgb(255,89,0,1) 7%, rgba(242, 117, 0, 1) 50%, rgba(231, 142, 0, 1) 100%)';
+                        document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg, rgb(255, 81, 0) 7%, rgba(242,117,0,1) 51%, rgba(242,170,0,1) 97%)';
 
                         btn_Geral.classList.add('btnGeral-active');
                         div_ChartGeral.style.display = 'block';
@@ -66,9 +65,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'cordas') {
-                        document.querySelector(".cordefundo").style.background = 'rgb(54,85,235);';
                         document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg, rgba(54,85,235,1) 7%, rgba(54,162,235,1) 50%, rgba(54,222,235,1) 100%)';
-
 
                         btn_Cordas.classList.add('btnCordas-active');
                         div_ChartCordas.style.display = 'block';
@@ -89,7 +86,6 @@ function obterDadosGrafico(idOrquestra, tipo) {
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else if (tipo == 'madeiras') {
-                        document.querySelector(".cordefundo").style.background = 'rgb(255,91,91);';
                         document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg, rgba(255,91,91,1) 7%, rgba(255,99,132,1) 50%, rgba(255,99,197,1) 100%)';
 
                         btn_Madeiras.classList.add('btnMadeiras-active');
@@ -111,8 +107,7 @@ function obterDadosGrafico(idOrquestra, tipo) {
                             plotarGrafico(resposta, cor, chart);
                         });
                     } else {
-                        document.querySelector(".cordefundo").style.background = 'rgb(255,131,0);';
-                        document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg, rgba(255,131,0,1) 7%, rgba(255,205,86,1) 72%)';
+                        document.querySelector(".cordefundo").style.background = 'linear-gradient(90deg, rgba(255,114,54,1) 8%, rgba(255,205,86,1) 51%, rgba(255,236,86,1) 97%)';
 
                         btn_Metais.classList.add('btnMetais-active');
                         div_ChartMetais.style.display = 'block';
