@@ -44,9 +44,93 @@
     </section>
     <!-- Fim do banner -->
 
-    <footer>
+    <section class="sec-instrumentos">
+        <div class="container">
+            <div class="textoInicial">
+                A orquestra é uma unidade altamente organizada e equilibrada, composta – em tese – por quatro naipes ou
+                “famílias”. Os instrumentos que compõem cada naipe compartilham características comuns entre si.
+            </div>
+            <div class="filtro">
+                <h2>Escolha o naipe que deseja saber mais</h2>
+                <div class="filtro-btns">
+                    <button onclick="filtro('cordas')">Cordas</button>
+                    <button onclick="filtro('madeiras')">Madeiras</button>
+                    <button onclick="filtro('meitas')">Metais</button>
+                    <button onclick="filtro('repercussao')">Repercussão</button>
+                </div>
+            </div>
+            <div class="content-instrumento" id="content_cordas">
+                <h2 class="titulo">Cordas</h2>
+                <div class="texto">
+                    Os instrumentos de cordas são aqueles cujo o som é produzido pela vibração de uma
+                    corda presa em suas extremidades. Quanto mais longa, menos tensionada e mais densa a corda, mais
+                    grave é o som emitido e vice-versa. A quantidade de cordas nos instrumentos desta família varia
+                    muito, podendo ter uma, como o berimbau, ou mais de quarenta, como a harpa.
+                </div>
+                <div class="imagens">
+                    <div class="grid-item">
+                        <div class="imagem">
+                            <img src="./assets/imgs/emoji-drums.png" alt="">
+                            <div class="nomeImg">
+                                Violino
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-instrumento" id="content_madeiras">
+                <h2 class="titulo">Madeiras</h2>
+                <div class="texto">
+                    Fazem parte desta categoria todos os instrumentos de sopro cujo som é produzido pela
+                    adaptação dos lábios do executante sobre um bocal, como nas diversas flautas, ou sobre uma palheta
+                    simples ou dupla, como na clarineta e no oboé.
+                </div>
+                <div class="imagens">
+                    <div class="grid-item">
+                        <div class="imagem">
+                            <img src="./assets/imgs/emoji-drums.png" alt="">
+                            <div class="nomeImg">
+                                Violino
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="content-footer">
+            <div class="footer-logo">
+                <img src=".//assets/imgs/logo.png" alt="">
+            </div>
+            <div class="footer-links">
+                <div class="footer-navegar">
+                    <h2>Navegue</h2>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li class="footer-active"><a href="instrumentos.html">INSTRUMENTOS</a></li>
+                        <li><a href="sobre-nos.html">SOBRE NÓS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-entrar">
+                    <ul>
+                        <h2>Acessar</h2>
+                        <li><a href="login.html">ENTRAR</a></li>
+                        <li><a href="cadastrar.html">CADASTRAR</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="direitos">
+            <p>Copyright © 2022 RYTHM - Todos os direitos reservados. Desenvolvido por Murilo dos Santos Barbosa</p>
+        </div>
     </footer>
+    <!-- FIM DO FOOTER -->
+
 </body>
 
 </html>
+<script src="./js/instrumentos.js"></script>
