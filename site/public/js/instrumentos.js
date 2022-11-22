@@ -1,30 +1,3 @@
-var imagens = document.querySelectorAll(".imagem");
-var nomes = document.querySelectorAll(".nomeImg");
-
-var imagemCompleta = [];
-
-for (let i = 0; i < imagens.length; i++) {
-    const imagem = imagens[i];
-    const nome = nomes[i];
-
-
-    imagem.addEventListener("mouseover",
-        function () {
-            nome.style.display = 'flex';
-        }
-    )
-
-    imagem.addEventListener("mouseout",
-        function () {
-            nome.classList.add('sumirNome');
-            setTimeout(() => {
-                nome.style.display = 'none';
-                nome.classList.remove('sumirNome');
-            }, 450);
-        }
-    )
-}
-
 function filtro(tipo) {
     var content = document.querySelectorAll(".content-instrumento");
     var buttons = document.getElementsByName('button-filtro');

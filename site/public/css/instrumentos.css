@@ -41,6 +41,7 @@
     border-radius: 7px;
     font-size: 1.2rem;
     border: 1px solid #000;
+
 }
 
 .filtro-btns button:hover,
@@ -92,14 +93,23 @@
     width: 200px;
 }
 
+.imagem img {
+    object-fit: cover;
+}
+
+.imagem {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .nomeImg {
-    display: none;
-    position: relative;
-    top: -103%;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    position: absolute;
+    width: 200px;
+    height: 0;
     background-color: #b4927393;
-    color: #fff;
+    color: transparent;
     align-items: center;
     font-size: 1.3rem;
     font-weight: 600;
@@ -110,23 +120,7 @@
 
 }
 
-@keyframes aparecerNome {
-    0% {
-        height: 0;
-    }
-}
-
-.sumirNome {
-    animation: sumirNome 500ms ease-in-out;
-}
-
-@keyframes sumirNome {
-    0% {
-        height: 100%;
-    }
-
-    100% {
-        height: 0;
-        opacity: 0;
-    }
+.imagem:hover .nomeImg {
+    height: 200px;
+    color: #fff;
 }
