@@ -53,10 +53,10 @@
             <div class="filtro">
                 <h2>Escolha o naipe que deseja saber mais</h2>
                 <div class="filtro-btns">
-                    <button onclick="filtro('cordas')">Cordas</button>
-                    <button onclick="filtro('madeiras')">Madeiras</button>
-                    <button onclick="filtro('meitas')">Metais</button>
-                    <button onclick="filtro('repercussao')">Repercussão</button>
+                    <button name="button-filtro" id="btn_cordas" onclick="filtro('cordas')">Cordas</button>
+                    <button name="button-filtro" id="btn_madeiras" onclick="filtro('madeiras')">Madeiras</button>
+                    <button name="button-filtro" id="btn_metais" onclick="filtro('metais')">Metais</button>
+                    <button name="button-filtro" id="btn_percussao" onclick="filtro('percussao')">Percussão</button>
                 </div>
             </div>
             <div class="content-instrumento" id="content_cordas">
@@ -84,6 +84,44 @@
                     Fazem parte desta categoria todos os instrumentos de sopro cujo som é produzido pela
                     adaptação dos lábios do executante sobre um bocal, como nas diversas flautas, ou sobre uma palheta
                     simples ou dupla, como na clarineta e no oboé.
+                </div>
+                <div class="imagens">
+                    <div class="grid-item">
+                        <div class="imagem">
+                            <img src="./assets/imgs/emoji-drums.png" alt="">
+                            <div class="nomeImg">
+                                Violino
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-instrumento" id="content_metais">
+                <h2 class="titulo">Metais</h2>
+                <div class="texto">
+                    Integram esta categoria os instrumentos de sopro que produzem o som pela vibração direta dos lábios
+                    do executante sobre um bocal de metal. Normalmente são construídos em metal, principalmente o latão,
+                    e possuem uma sonoridade muito potente, como o Trompete, trompa, trombone, tuba, eufônio, flugelhorn
+                </div>
+                <div class="imagens">
+                    <div class="grid-item">
+                        <div class="imagem">
+                            <img src="./assets/imgs/emoji-drums.png" alt="">
+                            <div class="nomeImg">
+                                Violino
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-instrumento" id="content_percussao">
+                <h2 class="titulo">Percussão</h2>
+                <div class="texto">
+                    Os instrumentos de percussão são aqueles que necessitam ser percutidos (batidos), agitados, raspados
+                    ou friccionados para que produzam os sons. Costuma-se dividir os instrumentos de percussão em dois
+                    grupos principais: os de altura indefinida, como o chocalho e o tamborim, e os de altura definida,
+                    que geram uma nota musical específica, como o tímpano, a marimba e o xilofone. Exemplo: Agogô,
+                    pandeiro, bateria, xilofone, tímpano, marimba, chocalho, tamborim
                 </div>
                 <div class="imagens">
                     <div class="grid-item">
