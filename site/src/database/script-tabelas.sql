@@ -6,7 +6,7 @@ create table Orquestra(
 	idOrquestra int auto_increment primary key,
 	nome varchar(45),
 	login varchar(45) unique,
-	senha varchar(45)
+	senha varchar(256)
 );
 
 create table Contato(

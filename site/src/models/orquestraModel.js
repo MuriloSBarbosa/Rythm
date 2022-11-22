@@ -17,7 +17,7 @@ function entrar(login, senha) {
     function entrar():${login}, ${senha}`)
 
     var instrucao = `
-        SELECT * FROM orquestra WHERE login = '${login}' AND senha = '${senha}';
+        SELECT * FROM orquestra WHERE login = '${login}' AND senha = SHA2('${senha}',256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -45,7 +45,7 @@ function cadastroOrquestra(nome, login, senha) {
      function cadastrar():${nome}, ${login}, ${senha},`);
 
     var instrucao = `
-        INSERT INTO orquestra (nome,login,senha) VALUES ('${nome}','${login}', '${senha}');
+        INSERT INTO orquestra (nome,login,senha) VALUES ('${nome}','${login}', SHA2('${senha}',256));
         `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
