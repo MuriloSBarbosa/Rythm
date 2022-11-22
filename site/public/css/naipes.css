@@ -232,6 +232,7 @@ body {
     border-radius: 0 0 7px 7px;
     color: #d10202;
     width: 100%;
+    transition: 300ms;
 }
 
 .modal-button button:hover,
