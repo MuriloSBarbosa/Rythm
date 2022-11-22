@@ -20,7 +20,11 @@ function obterDadosGrafico(idOrquestra, tipo) {
                 div_ChartCordas.style.display = 'none';
                 div_ChartMadeiras.style.display = 'none';
                 div_ChartMetais.style.display = 'none';
+
                 nenhum_cadastrado.style.display = 'none';
+
+                document.querySelector(".cordefundo").style.display = 'none';
+
 
                 btn_Geral.classList.remove('btnGeral-active');
                 btn_Cordas.classList.remove('btnCordas-active');
@@ -128,6 +132,8 @@ function obterDadosGrafico(idOrquestra, tipo) {
                             plotarGrafico(resposta, cor, chart);
                         });
                     }
+                    document.querySelector(".cordefundo").style.display = 'block';
+
                 }
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
