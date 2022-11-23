@@ -259,10 +259,10 @@ function adicionarMusico() {
 
 // ------------------ Função de Atualizar Feed ------------------------//
 
-function atualizarFeed() {
+function atualizarFeed(filtro) {
     var idOrquestra = sessionStorage.ID_ORQUESTRA;
 
-    fetch(`/meusMusicos/listar/${idOrquestra}`).then(function (resposta) {
+    fetch(`/meusMusicos/listar/${idOrquestra}/${filtro}`).then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
                 h2_nenhumAchado.innerHTML = "Nenhum músico cadastrado."
@@ -281,18 +281,31 @@ function atualizarFeed() {
                 <table class="tabela-musicos">
                     <thead>
                         <tr>
-                            <th>Id<img src="assets/imgs/minus.png" alt=""></th> 
-                            <th>Musico</th>
-                            <th>Instrumento</th>
-                            <th>Telefone</th>
-                            <th>Excluir</th>
-                            <th>Editar</th>
+                            <th><button name="btn-filtro" onclick="atualizarFeed('id')">Id</button></th> 
+                            <th><button name="btn-filtro" onclick="atualizarFeed('musico')">Musico</button></th>
+                            <th><button name="btn-filtro" onclick="atualizarFeed('instrumento')">Instrumento</button></th>
+                            <th><button name="btn-filtro" onclick="atualizarFeed('telefone')">Telefone</button></th>
+                            <th>Excluir</button></th>
+                            <th>Editar</button></th>
                         </tr>
                     </thead>
                     <tbody id="table_musicos">
                     </tbody>
                 </table>
                 `;
+
+                var btn_filtro = document.getElementsByName('btn-filtro');
+
+                if (filtro == 'id') {
+                    btn_filtro[0].classList.add('active-filtro');
+                } else if (filtro == 'musico') {
+                    btn_filtro[1].classList.add('active-filtro');
+                } else if (filtro == 'instrumento') {
+                    btn_filtro[2].classList.add('active-filtro');
+                } else if (filtro == 'telefone') {
+                    btn_filtro[3].classList.add('active-filtro');
+                }
+
                 for (let i = 0; i < resposta.length; i++) {
                     var musico = resposta[i];
                     table_musicos.innerHTML +=

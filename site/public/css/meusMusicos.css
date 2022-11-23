@@ -153,9 +153,22 @@ body {
     font-weight: 600;
 }
 
+.tabela-musicos thead button {
+    color: black;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.tabela-musicos thead button:hover,
+.tabela-musicos .active-filtro {
+    color: #e2e2e2;
+}
+
+
 .tabela-musicos th img {
     height: 13px;
-    position: relative;;
+    position: relative;
     left: 4px;
     background-color: #c9c9c9;
 }

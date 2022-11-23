@@ -47,7 +47,7 @@ function cadastrar(idOrquestra, nome, telefone, instrumento) {
     return database.executar(instrucao)
 }
 
-function listar(idOrquestra) {
+function listar(idOrquestra, filtro) {
     console.log(`ACESSEI O LISTAR MODEL \n \n\t\t 
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
@@ -61,13 +61,13 @@ function listar(idOrquestra) {
           m.telefone     
             from musico m join instrumento i 
                 on fkInstrumento = idInstrumento 
-                    where fkOrquestra = ${idOrquestra}; 
+                    where fkOrquestra = ${idOrquestra} order by ${filtro === 'undefined' ? 'm.idMusico' : filtro}; 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function deletar(idOrquestra,idMusico) {
+function deletar(idOrquestra, idMusico) {
     console.log(`ACESSEI O AVISO MODEL \n \n\t\t 
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
@@ -82,7 +82,7 @@ function deletar(idOrquestra,idMusico) {
     return database.executar(instrucao);
 }
 
-function editar(idOrquestra,idMusico, nome, telefone, instrumento) {
+function editar(idOrquestra, idMusico, nome, telefone, instrumento) {
     console.log(`ACESSEI O EDITAR MODEL \n \n\t\t 
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 
@@ -98,7 +98,7 @@ function editar(idOrquestra,idMusico, nome, telefone, instrumento) {
 }
 
 
-function listarUm(idOrquestra,idMusico) {
+function listarUm(idOrquestra, idMusico) {
     console.log(`ACESSEI O LISTAR UM MODEL \n \n\t\t 
     >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t 
     >> verifique suas credenciais de acesso ao banco\n \t\t 

@@ -38,8 +38,18 @@ function cadastrarMusico(req, res) {
 // ----------------- listar -------------------- //
 function listar(req, res) {
     var idOrquestra = req.params.idOrquestra;
+    var filtro = req.params.filtro;
 
-    meusMusicosModel.listar(idOrquestra).then(function (resultado) {
+    if (filtro == 'id') {
+        filtro = 'm.idMusico';
+    } else if (filtro == 'musico') {
+        filtro = 'm.nome';
+    } else if (filtro == 'instrumento') {
+        filtro = 'i.nome';
+    } else if(filtro == 'telefone') {
+        filtro = 'm.telefone';
+    }
+    meusMusicosModel.listar(idOrquestra, filtro).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -85,7 +95,7 @@ function editar(req, res) {
     var telefone = req.body.telefoneServer;
     var instrumento = req.body.instrumentoServer;
 
-    meusMusicosModel.editar(idOrquestra,idMusico, nome, telefone, instrumento)
+    meusMusicosModel.editar(idOrquestra, idMusico, nome, telefone, instrumento)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -108,7 +118,7 @@ function editar(req, res) {
 function listarUm(req, res) {
     var idOrquestra = req.params.idOrquestra;
     var idMusico = req.params.idMusico;
-    meusMusicosModel.listarUm(idOrquestra,idMusico).then(function (resultado) {
+    meusMusicosModel.listarUm(idOrquestra, idMusico).then(function (resultado) {
         if (resultado.length > 0) {
             console.log(`Listando o Músico ${idMusico}`);
             console.log(resultado);

@@ -7,7 +7,7 @@ router.post("/cadastrarMusico/:idOrquestra", function (req, res) {
     meusMusicosController.cadastrarMusico(req, res);
 });
 
-router.get("/listar/:idOrquestra", function (req, res) {
+router.get("/listar/:idOrquestra/:filtro", function (req, res) {
     meusMusicosController.listar(req, res);
 });
 
