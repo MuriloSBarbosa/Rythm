@@ -1,3 +1,7 @@
+setTimeout(() => {
+    in_login.focus();
+}, 700);
+
 function entrar() {
 
     var loginVar = in_login.value;
