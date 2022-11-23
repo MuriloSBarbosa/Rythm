@@ -235,10 +235,6 @@ function adicionarMusico() {
             var msg = "Musico adicionado com sucesso!...";
             aparecer_card(msg);
 
-            in_adcNome.value = "";
-            in_adcTelefone.value = "";
-            sel_adcNaipe.value = "";
-
             setTimeout(() => {
                 div_card.style.display = "none";
                 finalizarAguardar();
@@ -277,7 +273,6 @@ function atualizarFeed() {
 
                 var texto = 'Listando Musicos';
                 aparecer_card(texto);
-                document.body.style.overflow = 'hidden';
 
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
 

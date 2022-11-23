@@ -669,6 +669,7 @@ footer * {
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
+    text-align: center;
 }
 
 .bem-vindo span {
