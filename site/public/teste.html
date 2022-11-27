@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .todos {
+
+        width: 100%;
+        top: 30%;
+    }
+
+    button {
+        background-color: aqua;
+    }
+
+    .content {
+        background-color: #f5f5f5;
+        display: flex;
+    }
+
+    .div {
+        width: 100px;
+        height: 100px;
+        border: #000 2px solid;
+    }
+</style>
+
+<body>
+    <div class="todos">
+        <button onclick="antes()">ANTES</button>
+        <button onclick="depois()">depois</button>
+        <div class="content" id="content">
+            <div style="background-color: red;" class="div" id="div1"></div>
+            <div style="background-color: blue;" class="div" id="div2"></div>
+            <div style="background-color: green;" class="div" id="div3"></div>
+            <div style="background-color: pink;" class="div" id="div4"></div>
+            <div style="background-color: black;" class="div" id="div5"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var imagens = document.querySelectorAll('.div');
+
+    function antes() {
+        for (var i = 0; i < imagens.length; i++) {
+            content.innerHTML += imagens[i];
+        }
+    }
+</script>

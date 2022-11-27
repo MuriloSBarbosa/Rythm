@@ -1,0 +1,80 @@
+/* ------------- Carousel images ------------ */
+
+.contentImages {
+    position: relative;
+    padding: 15px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px;
+}
+
+.gallery-wrapper {
+    overflow-x: auto;
+}
+
+
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    font-size: 40px;
+    line-height: 250px;
+    text-align: center;
+    width: 50px;
+    z-index: 1;
+    color: rgb(29, 29, 29);
+    background: linear-gradient(to left, transparent 0%, #6FD6DC 200%);
+    opacity: 0.5;
+    transition: all 600ms ease-in-out;
+}
+
+.arrow-right {
+    position: absolute;
+    left: auto;
+    right: 0;
+    background: linear-gradient(to right, transparent 0%, #6FD6DC 200%);
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    opacity: 1;
+    transform: none;
+}
+
+.item {
+    flex-shrink: 0;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 600ms ease-in-out;
+    height: 400px;
+}
+
+.current-item {
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 0 10px #0007;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-wrapper {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+}
+
+/* ------------- Fim Carousel images ------------ */
+
+video{
+    width: 227px;
+}
