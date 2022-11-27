@@ -1,22 +1,81 @@
-.sobre-nos-banner {
-    background-image: url("../assets/sobre-nos/aniversario.jpg");
-    background-size:cover ;
-    background-position: center;
+body {
+    overflow-x: hidden;
 }
 
-.content-text h2{
-    color: #f27500;
-    background-color: rgba(0, 0, 0, 0.639);
-    padding: 12px 15px;
-    border-radius: 7px;
+.sobre-nos-banner {
+    background-image: url("../assets/sobre-nos/bg-sobre.png");
+    background-size: cover;
+    background-position: bottom;
 }
+
+.content-history .container {
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title h2 {
+    color: #6FD6DC;
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 40px 40px;
+}
+
+.content-text .history .text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 4rem;
+    text-indent: 40px;
+    text-align: justify;
+}
+
+.text p {
+    font-size: 17px;
+}
+
+.history {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history img {
+    height: 600px;
+    border-radius: 20px;
+}
+
+.rythm {
+    padding: 2.5rem 0;
+}
+
 /* ------------- Carousel images ------------ */
 
 .contentImages {
     position: relative;
     padding: 15px;
-    max-width: 90%;
+    width: 95%;
     margin: 0 auto;
+}
+
+.contentImages .title h2 {
+    padding: 50px 0 0px 0;
+}
+
+.gallery-text {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2.3rem;
+}
+
+.gallery-text span{
+    position: relative;
+    bottom: -20px;
+    font-size: 1rem;
 }
 
 .gallery {
@@ -33,31 +92,42 @@
 .arrow-left,
 .arrow-right {
     position: absolute;
-    top: 0;
     left: 0;
     right: auto;
-    bottom: 0;
+    height: 400px;
     font-size: 40px;
     line-height: 250px;
     text-align: center;
     width: 50px;
     z-index: 1;
     color: rgb(29, 29, 29);
-    background: linear-gradient(to left, transparent 0%, #6FD6DC 200%);
+    background: linear-gradient(to left, transparent 0%, #f27500 200%);
     opacity: 0.5;
-    transition: all 600ms ease-in-out;
+    transition: all 500ms ease-in-out;
 }
 
 .arrow-right {
     position: absolute;
     left: auto;
     right: 0;
-    background: linear-gradient(to right, transparent 0%, #6FD6DC 200%);
+    background: linear-gradient(to right, transparent 0%, #f27500 200%);
 }
 
 .arrow-left:hover,
 .arrow-right:hover {
     opacity: 1;
+    transform: none;
+    font-size: 50px;
+}
+
+.arrow-left:active,
+.arrow-right:active {
+    transition: 100ms;
+    font-size: 40px;
+}
+
+.arrow-left:focus,
+.arrow-right:focus {
     transform: none;
 }
 
@@ -73,6 +143,7 @@
     opacity: 1;
     filter: none;
     box-shadow: 0 0 10px #0007;
+    background-color: #f27500;
 }
 
 .gallery-wrapper::-webkit-scrollbar {
@@ -84,5 +155,42 @@
     /* IE and Edge */
     scrollbar-width: none;
 }
+
+.description {
+    max-width: 400px;
+    padding: 10px 12px;
+    position: absolute;
+    text-align: center;
+    top: 54%;
+    z-index: 2;
+    right: -100%;
+    background-color: #f27500;
+    color: #fff;
+    padding: 3rem;
+    transition: 500ms;
+}
+
+.lastDesc{
+    right: auto;
+    left: -100%;
+}
+
+.image {
+    width: max-content;
+    height: max-content;
+}
+
+.image:hover .activeDesc {
+    right: 0%;
+}
+
+.image:hover .activeDescLast{
+    left: 40%;
+}
+
+.image:hover .current-item {
+    padding: 9px;
+}
+
 
 /* ------------- Fim Carousel images ------------ */

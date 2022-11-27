@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sobre-nos.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -45,30 +46,142 @@
 
     <section class="sec_sobre-nos">
 
-        <div class="contentImages">
-            <button class="arrow-left control" aria-label="Previous image">◀</button>
-            <button class="arrow-right control" aria-label="Next image">▶</button>
-            <div class="gallery-wrapper">
-                <div class="gallery">
-                    <img class="item" src="assets/sobre-nos/despedidaLaura.jpg">
-                    <img class="item" src="assets/sobre-nos/fotobras.jpg">
-                    <img class="item" src="assets/sobre-nos/euBras.webp">
-                    <img class="item" src="assets/sobre-nos/euMae.jpg">
-                    <img class="item" src="assets/sobre-nos/mocidadeBrasa.jpg">
-                    <img class="item current-item" src="assets/sobre-nos/aniversario.jpg">
-                    <img class="item" src="assets/sobre-nos/instrumentoBras.jpg">
-                    <img class="item" src="assets/sobre-nos/mocidadeTerezinha.jpg">
-                    <img class="item" src="assets/sobre-nos/pequenoCasa.jpg">
-                    <img class="item" src="assets/sobre-nos/euBRasa.webp">
-                    <img class="item" src="assets/sobre-nos/Terezinha.jpg">
-                    <img class="item" src="assets/sobre-nos/tocandoBras.jpg">
+        <div class="content-history">
+            <div class="container">
+                <div class="title reveal">
+                    <h2>Como surgiu o Rythm</h2>
+                </div>
+                <div class="content-text">
+                    <div class="history">
+                        <img src="assets/sobre-nos/euBras.webp" class="reveal" alt="">
+                        <div class="text reveal">
+                            <p>Em 2003 nasce o criador e gerente do Rythm, Murilo dos Santos Barbosa. Desde pequeno, foi
+                                ensinado pela sua família a ir à igreja e louvar a Deus. Tendo fortes influências de
+                                tios e
+                                próprio pai, se interessou em ingressar nos estudos de música para tocar Saxofone
+                                Soprano.
+                            </p>
+                            <p>Esses estudos eram feitos na própria igreja. Com 11 anos, já começou a tocar com os
+                                jovens na
+                                igreja e com 14 anos se batizou. No mesmo ano, fez a prova de oficialização, uma prova
+                                na
+                                qual vê se o músico está preparado para tocar oficialmente nas Congregações Cristã do
+                                Brasil
+                                e do Mundo.</p>
+                            <p>Ao passar pela prova, percebeu algo estranho: os músicos aprovados e já oficializados
+                                eram
+                                anotados em uma planilha de papel, o que dava trabalho, incerteza de números e pouca
+                                organização.</p>
+                            <p>Em toda sua vida foi apaixonado por tecnologia. Em 2020 com 17 anos, ingressou os estudos
+                                técnicos em Desenvolvimento de Sistemas pela ETEC, e após o término de 1,5 ano,
+                                ingressou na
+                                faculdade de ADS pela SPTECH.</p>
+                            <p>Logo no primeiro semestre da faculdade teve que fazer um projeto individual de um tema
+                                que
+                                gostasse. Ao lembrar do ocorrido em sua oficialização e sua paixão em música, o Rythm
+                                surgiu. </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </div>
-
     </section>
+
+    <!-- O QUE É RYTHM-->
+    <section class="rythm">
+        <div class="container reveal">
+            <div class="content-text">
+                <h2>Então, o que é Rythm?</h2>
+                <p> O sistema foi criado como uma proposta de resolver o ocorrido de uma maneira muito simples e
+                    didática: um controle de orquestra, na qual pode cadastrar seus músicos,
+                    instrumentos, ver os dados em gráficos e saber se a quantidade está no equilíbrio ideal (50%
+                    cordas, 25% madeiras e 25% metais).</p>
+            </div>
+            <button onclick="location.href='./cadastrar.html'">CADASTRE-SE</button>
+        </div>
+    </section>
+    <!-- FIM O QUE É RYTHM -->
+
+    <section class="contentImages">
+        <div class="title reveal">
+            <h2>Galeria de fotos</h2>
+        </div>
+        <div class="gallery-text reveal">
+            Veja fotos sobre a história e relação do Murilo com a Música.
+            <br>
+            <span class="reveal">Passe o mouse em cima da foto para saber mais!</span>
+        </div>
+        <button class="arrow-left control" aria-label="Previous image">◀</button>
+        <button class="arrow-right control" aria-label="Next image">▶</button>
+        <div class="gallery-wrapper">
+            <div class="gallery">
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/aniversario.jpg">
+                    <div class="description">No aniversario de 18 anos, Murilo chamou os amigos e fez uma
+                        tocata!</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/fotobras.jpg">
+                    <div class="description">Esse é ele na orquestra da CCB do Brás com seus amigos.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/euBras.webp">
+                    <div class="description">Uma das primeiras vezes que foi na CCB do Brás, a maior Congregação do
+                        Mundo.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/euMae.jpg">
+                    <div class="description">Murilo ao lado se sua mãe, tocando com amigos.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/despedidaLaura.jpg">
+                    <div class="description">Quando um casal casa na CCB, há um evento na Reunião de Jovens e Menores de despedida. Esse era o dia da irmã dele, que iria casar.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/pequeno.jpg">
+                    <div class="description">Murilo sabe tocar desde os 11 anos! Esse era um dia típico de manhã ao ir para a Reunião de Jovens e Menores. </div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/family.jpg">
+                    <div class="description">Uma boa parte da sua família toca algum instrumento. Aqui temos pai, irmã, tio e cunhado tocando junto com ele.</div>
+                </div>
+                <div class="image">
+                    <img class="item current-item" src="assets/sobre-nos/mocidadeBrasa.jpg">
+                    <div class="description activeDesc">Quando um casal casa na CCB, há um evento na Reunião de Mocidade de despedida. Esse era o dia da irmã dele, que iria casar.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/instrumentoBras.jpg">
+                    <div class="description">Murilo na CCB do Brás com seu Saxofone Soprano.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/mocidadeTerezinha.jpg">
+                    <div class="description">Uma grande confrartenização aconteceu com a mocidade e crianças de sua igreja. Olha quanta gente!</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/sitioPedro.jpg">
+                    <div class="description">Em 2019, junto com a irmã, cunhado e amigos, foram ao topo de um morro no Monte Sião tocar hinos.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/pequenoCasa.jpg">
+                    <div class="description">Desde pequeno ele já se reunia com os amigos para tocar, mesmo que fosse para... brincar!</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/euBRasa.webp">
+                    <div class="description">Murilo na CCB da Brasilândia, Zona Norte.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/Terezinha.jpg">
+                    <div class="description">Uma parte de seus amigos da igreja após uma Reunião de Jovens e Menores.</div>
+                </div>
+                <div class="image">
+                    <img class="item" src="assets/sobre-nos/tocandoBras.jpg">
+                    <div class="description lastDesc">Uma das fotos favoritas dele, na CCB do Brás tocando seu instrumento.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="content-footer">
