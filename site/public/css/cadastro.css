@@ -17,6 +17,7 @@
     column-gap: 30px;
     justify-content: center;
     animation: aparecer-esquerdo 400ms ease;
+    color: #f4eaff;
 }
 
 .form_login {
